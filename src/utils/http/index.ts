@@ -2,7 +2,7 @@ import { createAlova } from 'alova';
 import AdapterUniapp from '@alova/adapter-uniapp';
 import { getBaseUrl } from '@/utils/env';
 import { assign } from 'lodash-es';
-import { useAuthStore } from '@/state/modules/auth';
+import { useAuthStore } from '@/stores/modules/auth';
 import { checkStatus } from '@/utils/http/checkStatus';
 import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
 import { Toast } from '@/utils/uniapi/prompt';

@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useAddressStore } from '@/state/modules/address';
+import { useAddressStore } from '@/stores/modules/address';
 
 const addressStore = useAddressStore();
 

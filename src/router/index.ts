@@ -2,7 +2,7 @@ import { createRouter } from 'uni-mini-router';
 import pagesJson from '../pages.json';
 import pagesJsonToRoutes from 'uni-parse-pages';
 import type { Route } from 'uni-mini-router/lib/interfaces';
-import { useAuthStore } from '@/state/modules/auth';
+import { useAuthStore } from '@/stores/modules/auth';
 const routes = pagesJsonToRoutes(pagesJson);
 
 interface Meta {

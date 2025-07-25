@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { onShow } from '@dcloudio/uni-app';
-import { useAuthStore } from '@/state/modules/auth';
+import { useAuthStore } from '@/stores/modules/auth';
 import { useRouter } from 'uni-mini-router';
 import SvgIcon from '@/components/SvgIcon/SvgIcon.vue';
 

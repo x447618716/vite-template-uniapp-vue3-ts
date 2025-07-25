@@ -2,7 +2,7 @@
 import { reactive, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { onLoad } from '@dcloudio/uni-app';
-import { useAuthStore } from '@/state/modules/auth';
+import { useAuthStore } from '@/stores/modules/auth';
 import { Toast } from '@/utils/uniapi/prompt';
 import { judgeUserIsLeader, login } from '@/services/api/auth';
 import { useRouter } from 'uni-mini-router';

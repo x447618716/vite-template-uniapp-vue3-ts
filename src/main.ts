@@ -1,6 +1,6 @@
 import { createSSRApp } from 'vue';
 import App from './App.vue';
-import pinia from '@/state';
+import pinia from '@/stores';
 import router from '@/router';
 import uviewPlus from 'uview-plus';
 

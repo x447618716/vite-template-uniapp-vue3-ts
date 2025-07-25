@@ -78,7 +78,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted } from 'vue';
-import { useAddressStore } from '@/state/modules/address';
+import { useAddressStore } from '@/stores/modules/address';
 import area from '@/static/json/area.json';
 
 const addressStore = useAddressStore();
