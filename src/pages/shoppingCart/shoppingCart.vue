@@ -1,7 +1,7 @@
 <template>
     <view class="cart-page">
         <view class="cart-content">
-            <scroll-view scroll-y class="cart-list" @scrolltolower="loadMore">
+            <scroll-view :scroll-y="true" class="cart-list" @scrolltolower="loadMore">
                 <view v-for="(item, index) in cartList" :key="item.id" class="cart-item-wrapper">
                     <view class="item-checkbox">
                         <checkbox :checked="item.checked" @click="toggleItem(index)" color="#246bfb" class="round-checkbox" />

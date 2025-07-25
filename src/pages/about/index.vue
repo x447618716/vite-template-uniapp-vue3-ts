@@ -36,11 +36,6 @@ const closePopup = () => {
 const handleSave = () => {
     userInfo.subtitle = editForm.subtitle;
     closePopup();
-    // TODO: 这里可以添加保存到后端的逻辑
-    uni.showToast({
-        title: '保存成功',
-        icon: 'success',
-    });
 };
 
 onShow(() => {

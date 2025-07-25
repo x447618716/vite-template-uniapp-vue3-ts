@@ -15,12 +15,12 @@
 
             <!-- 文章内容 -->
             <view class="content-wrapper">
-                <block v-for="(section, index) in article.sections" :key="index">
+                <template v-for="(section, index) in article.sections" :key="index">
                     <text v-if="section.type === 'text'" class="content-text">
                         {{ section.content }}
                     </text>
                     <image v-if="section.type === 'image'" class="content-image" :src="section.content" mode="widthFix"></image>
-                </block>
+                </template>
             </view>
         </view>
 
@@ -72,7 +72,7 @@
                     <text class="title">评论 {{ article.comments }}</text>
                     <text class="close-btn" @tap="hideCommentList">×</text>
                 </view>
-                <scroll-view class="comments-container" scroll-y>
+                <scroll-view class="comments-container" :scroll-y="true">
                     <view v-if="commentList.length === 0" class="empty-tips">暂无评论，快来抢沙发吧~</view>
                     <view v-else class="comment-list">
                         <view v-for="(comment, index) in commentList" :key="index" class="comment-item">
@@ -268,10 +268,10 @@ defineExpose({
 
 <style lang="scss">
 .article-container {
-    padding: 30rpx;
     background: #fff;
     min-height: 100vh;
-    padding-bottom: 120rpx; // 为底部固定栏留出空间
+    // 为底部固定栏留出空间
+    padding: 30rpx 30rpx 120rpx;
 
     .article-header {
         margin-bottom: 40rpx;
@@ -314,28 +314,6 @@ defineExpose({
                 width: 100%;
                 border-radius: 12rpx;
                 margin: 20rpx 0 30rpx;
-            }
-        }
-    }
-
-    .article-footer {
-        .interaction-bar {
-            display: flex;
-            justify-content: space-around;
-            padding: 20rpx 0;
-
-            .action-item {
-                display: flex;
-                align-items: center;
-                gap: 8rpx;
-
-                text {
-                    font-size: 28rpx;
-                    color: #666;
-                    &.active {
-                        color: #ff4444;
-                    }
-                }
             }
         }
     }

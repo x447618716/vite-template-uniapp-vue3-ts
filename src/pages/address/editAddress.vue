@@ -40,7 +40,7 @@
                     <text class="confirm" @click="confirmRegion">确定</text>
                 </view>
                 <view class="picker-content">
-                    <scroll-view class="region-scroll" scroll-y>
+                    <scroll-view class="region-scroll" :scroll-y="true">
                         <view
                             v-for="(province, index) in area"
                             :key="index"
@@ -50,7 +50,7 @@
                             {{ province.name }}
                         </view>
                     </scroll-view>
-                    <scroll-view class="region-scroll" scroll-y v-if="selectedRegion.province">
+                    <scroll-view class="region-scroll" :scroll-y="true" v-if="selectedRegion.province">
                         <view
                             v-for="(city, index) in currentCities"
                             :key="index"
@@ -60,7 +60,7 @@
                             {{ city.name }}
                         </view>
                     </scroll-view>
-                    <scroll-view class="region-scroll" scroll-y v-if="selectedRegion.city">
+                    <scroll-view class="region-scroll" :scroll-y="true" v-if="selectedRegion.city">
                         <view
                             v-for="(district, index) in currentDistricts"
                             :key="index"
@@ -188,16 +188,6 @@ const saveAddress = () => {
         });
         return;
     }
-
-    const addressData = {
-        name: form.value.name,
-        phone: form.value.phone,
-        detail: `${form.value.region} ${form.value.detail}`,
-        default: form.value.default,
-    };
-
-    // TODO: 调用保存地址的接口
-    console.log('保存地址', addressData);
     uni.navigateBack();
 };
 

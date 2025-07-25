@@ -1,7 +1,7 @@
 <template>
     <view class="comment-list-page">
         <!-- 评论列表 -->
-        <scroll-view class="comment-list" scroll-y @scrolltolower="loadMore">
+        <scroll-view class="comment-list" :scroll-y="true" @scrolltolower="loadMore">
             <view v-if="comments.length === 0" class="empty-tips">
                 <image src="/static/images/empty-comment.png" mode="aspectFit" class="empty-icon"></image>
                 <text class="empty-text">还没有评论</text>
