@@ -1,0 +1,15 @@
+@import 'weapp-tailwindcss/css';
+@source not "dist";
+page {
+    background-color: #f7f7f7;
+    font-family:
+        PingFang SC,
+        sans-serif;
+}
+::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none;
+    background: transparent;
+}

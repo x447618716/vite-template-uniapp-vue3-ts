@@ -1,0 +1,229 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "UniApp pages.json  Schema",
+    "description": "全局配置文件，定义页面路由、窗口样式和导航栏等配置",
+    "type": "object",
+    "properties": {
+        "globalStyle": {
+            "type": "object",
+            "description": "全局窗口样式配置（所有页面生效）",
+            "properties": {
+                "navigationBarBackgroundColor": {
+                    "type": "string",
+                    "description": "导航栏背景颜色（同状态栏背景色)（十六进制值）",
+                    "default": "#F8F8F8"
+                },
+                "navigationBarTextStyle": {
+                    "type": "string",
+                    "description": "导航栏标题颜色及状态栏前景颜色，仅支持 black/white",
+                    "enum": ["white", "black"],
+                    "default": "black"
+                },
+                "navigationBarTitleText": {
+                    "type": "string",
+                    "description": "导航栏标题文字内容"
+                },
+                "navigationStyle": {
+                    "type": "string",
+                    "description": "导航栏样式，仅支持 default/custom。custom即取消默认的原生导航栏",
+                    "enum": ["default", "custom"],
+                    "default": "default"
+                },
+                "backgroundColor": {
+                    "type": "string",
+                    "description": "下拉显示出来的窗口的背景色（十六进制值）",
+                    "default": "#ffffff"
+                },
+                "backgroundTextStyle": {
+                    "type": "string",
+                    "description": "下拉 loading 的样式，仅支持 dark / light",
+                    "enum": ["dark", "light"],
+                    "default": "dark"
+                },
+                "enablePullDownRefresh": {
+                    "type": "boolean",
+                    "description": "是否开启下拉刷新",
+                    "default": false
+                },
+                "onReachBottomDistance": {
+                    "type": "number",
+                    "description": "页面上拉触底事件触发时距页面底部距离，单位只支持px",
+                    "default": 50
+                }
+            },
+            "required": ["navigationBarTitleText"]
+        },
+        "pages": {
+            "type": "array",
+            "minItems": 1,
+            "description": "页面路径配置（第一项为首页）",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "pattern": "^pages/.*",
+                        "description": "页面路径（无需后缀）"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "命名路由跳转名称"
+                    },
+                    "style": {
+                        "type": "object",
+                        "description": "页面独有样式（覆盖全局样式）",
+                        "properties": {
+                            "navigationBarBackgroundColor": {
+                                "type": "string",
+                                "description": "导航栏背景颜色（同状态栏背景色)（十六进制值）",
+                                "default": "#F8F8F8"
+                            },
+                            "navigationBarTextStyle": {
+                                "type": "string",
+                                "description": "导航栏标题颜色及状态栏前景颜色，仅支持 black/white",
+                                "enum": ["white", "black"],
+                                "default": "black"
+                            },
+                            "navigationBarTitleText": {
+                                "type": "string",
+                                "description": "导航栏标题文字内容"
+                            },
+                            "navigationStyle": {
+                                "type": "string",
+                                "description": "导航栏样式，仅支持 default/custom。custom即取消默认的原生导航栏",
+                                "enum": ["default", "custom"],
+                                "default": "default"
+                            },
+                            "backgroundColor": {
+                                "type": "string",
+                                "description": "下拉显示出来的窗口的背景色（十六进制值）",
+                                "default": "#ffffff"
+                            },
+                            "backgroundTextStyle": {
+                                "type": "string",
+                                "description": "下拉 loading 的样式，仅支持 dark / light",
+                                "enum": ["dark", "light"],
+                                "default": "dark"
+                            },
+                            "enablePullDownRefresh": {
+                                "type": "boolean",
+                                "description": "是否开启下拉刷新",
+                                "default": false
+                            },
+                            "onReachBottomDistance": {
+                                "type": "number",
+                                "description": "页面上拉触底事件触发时距页面底部距离，单位只支持px",
+                                "default": 50
+                            }
+                        }
+                    }
+                },
+                "required": ["path", "name"]
+            }
+        },
+        "easycom": {
+            "type": "object",
+            "description": "组件自动引入规则",
+            "properties": {}
+        },
+        "tabBar": {
+            "type": "object",
+            "description": "底部导航栏配置",
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "description": "未选中时的文字颜色（十六进制）"
+                },
+                "selectedColor": {
+                    "type": "string",
+                    "description": "选中时的文字颜色（十六进制）"
+                },
+                "backgroundColor": {
+                    "type": "string",
+                    "description": "背景颜色（十六进制）"
+                },
+                "borderStyle": {
+                    "type": "string",
+                    "description": "上边框样式",
+                    "enum": ["black", "white"],
+                    "default": "black"
+                },
+                "position": {
+                    "type": "string",
+                    "description": "导航栏位置",
+                    "enum": ["bottom", "top"],
+                    "default": "bottom"
+                },
+                "list": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 5,
+                    "description": "导航项列表",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "pagePath": {
+                                "type": "string",
+                                "pattern": "^pages/.*",
+                                "description": "页面路径（需在pages中注册）"
+                            },
+                            "text": { "type": "string" },
+                            "iconPath": { "type": "string" },
+                            "selectedIconPath": { "type": "string" }
+                        },
+                        "required": ["pagePath", "text"]
+                    }
+                }
+            },
+            "required": ["color", "selectedColor", "backgroundColor", "list"]
+        },
+        "subPackages": {
+            "type": "array",
+            "description": "分包加载配置",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "root": {
+                        "type": "string",
+                        "description": "分包根目录"
+                    },
+                    "pages": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "path": { "type": "string" },
+                                "style": { "type": "object" }
+                            },
+                            "required": ["path"]
+                        }
+                    }
+                },
+                "required": ["root", "pages"]
+            }
+        },
+        "condition": {
+            "type": "object",
+            "description": "启动模式配置（仅开发环境生效）",
+            "properties": {
+                "current": {
+                    "type": "number",
+                    "description": "当前激活的模式索引"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": { "type": "string" },
+                            "path": { "type": "string" },
+                            "query": { "type": "string" }
+                        },
+                        "required": ["name", "path"]
+                    }
+                }
+            }
+        }
+    },
+    "required": ["pages"]
+}
