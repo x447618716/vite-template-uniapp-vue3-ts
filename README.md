@@ -114,6 +114,10 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 
 ```
 
+## Git 提交规范
+
+本项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范进行 Git 提交。
+
 ### 提交类型
 
 | 提交类型       | 标题        | 描述                                                            |
@@ -159,10 +163,6 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 13. devDependencies： 开发依赖修改
 14. review：复习，回顾
 15. strengthen: 加强，巩固
-
-## Git 提交规范
-
-本项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范进行 Git 提交。
 
 ### 提交格式
 
