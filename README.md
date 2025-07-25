@@ -160,8 +160,6 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 14. review：复习，回顾
 15. strengthen: 加强，巩固
 
-# Union App
-
 ## Git 提交规范
 
 本项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范进行 Git 提交。
