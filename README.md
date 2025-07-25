@@ -66,13 +66,16 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 │   │   ├─ api # api
 │   │   │    ├─auth.ts
 │   │   │    └─...
+│   │   ├─ dto # 参数数据模型
+│   │   │    ├─auth.ts
+│   │   │    └─...
 │   │   │
-│   │   └─ model # 数据模型
-│   │        ├─authModel.d.ts
+│   │   └─ vo # 响应数据模型
+│   │        ├─auth.ts
 │   │        └─...
 │   │
 │   │
-│   ├─state # 状态管理模式(pinia)
+│   ├─stores # 状态管理模式(pinia)
 │   │   ├─ modules # 数据模块
 │   │   │    ├─auth.ts
 │   │   │    └─...
