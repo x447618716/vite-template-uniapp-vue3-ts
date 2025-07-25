@@ -60,9 +60,31 @@ export function isString(val: unknown): val is string {
     return is(val, 'String');
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-export function isFunction(val: unknown): val is Function {
+/**
+ * 检测函数（支持泛型签名）
+ * @param val 待检测的未知类型值
+ * @returns 是否为函数，并通过类型谓词收窄类型
+ */
+export function isFunction<T extends (...args: any[]) => any>(val: unknown): val is T {
     return typeof val === 'function';
+}
+
+/**
+ * 检测异步函数（含 async 或返回 Promise）
+ * @param val 待检测的未知类型值
+ * @returns 是否为异步函数，并通过类型谓词收窄类型
+ */
+export function isAsyncFunction(val: unknown): val is (...args: any[]) => Promise<any> {
+    return isFunction(val) && val.constructor.name === 'AsyncFunction';
+}
+
+/**
+ * 检测 Class 构造函数（非普通函数）
+ * @param val 待检测的未知类型值
+ * @returns 是否为构造函数，并通过类型谓词收窄类型
+ */
+export function isConstructor(val: unknown): val is new (...args: any[]) => any {
+    return isFunction(val) && !!val.prototype?.constructor;
 }
 
 export function isBoolean(val: unknown): val is boolean {
