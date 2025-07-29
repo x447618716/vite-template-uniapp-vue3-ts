@@ -3,6 +3,14 @@
 ```bash
  npx degit x447618716/vite-template-uniapp-vue3-ts#main my-project
 ```
+## 开发建议
+
+当使用webstorm进行项目开发时建议安装以下插件：
+
+1. **Uniapp Tool** 这是一款免费的Uniapp插件，为uniapp项目提供内置组件语法提示以及easycom 组件等支持
+2. **Git Commit Template** 这是一款符合Conventional Commits规范的模版工具
+3. **uniapp-pages-schema.json** 这是一个JSON Schema主要为pages.json提供语法提示（目前只标注部分属性可自行添加）
+
 
 ## 安装
 
@@ -127,7 +135,23 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 
 本项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范进行 Git 提交。
 
-### 提交类型
+### 提交格式
+
+每次提交，Commit message 都包括三个部分：Header、Body 和 Footer。
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+其中，Header 是必需的，Body 和 Footer 可以省略。
+
+### 提交类型(Type)
+
+提交类型必须是以下之一：
 
 | 提交类型       | 标题        | 描述                                                            |
 |------------|-----------|---------------------------------------------------------------|
@@ -142,8 +166,7 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 | `ci`       | 持续集成      | 对我们的 CI 配置文件和脚本的更改（示例范围：Travis、Circle、BrowserStack、SauceLabs） |
 | `chore`    | 其他文件修改    | 不修改 src 或测试文件的其他更改                                            |
 | `revert`   | 还原        | 恢复之前的提交                                                       |
-| `release`  | 发布新版本     | \-                                                            |
-| `workflow` | 工作流相关文件修改 | \-                                                            |
+
 
 ### 提交别名
 
@@ -172,33 +195,6 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 13. devDependencies： 开发依赖修改
 14. review：复习，回顾
 15. strengthen: 加强，巩固
-
-### 提交格式
-
-每次提交，Commit message 都包括三个部分：Header、Body 和 Footer。
-
-```
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
-```
-
-其中，Header 是必需的，Body 和 Footer 可以省略。
-
-### Type 类型
-
-提交类型必须是以下之一：
-
--   `feat`: 新功能（feature）
--   `fix`: 修复 bug
--   `docs`: 文档更新
--   `style`: 代码格式（不影响代码运行的变动）
--   `refactor`: 重构（既不是新增功能，也不是修改 bug 的代码变动）
--   `perf`: 性能优化
--   `test`: 增加测试
--   `chore`: 构建过程或辅助工具的变动
 
 ### Scope 范围
 
