@@ -1,4 +1,10 @@
-## 安装使用
+## 使用
+
+```bash
+ npx degit x447618716/vite-template-uniapp-vue3-ts#main my-project
+```
+
+## 安装
 
 -   安装依赖
 
