@@ -34,7 +34,7 @@ pnpm up
 npx @dcloudio/uvm 3.7.2.20230217-alpha
 ```
 
-### 说明
+## 说明
 
 -   使用 uni-app Vue3 Vite4 pinia2 TypeScript 基础框架
 -   框架完全基于 Vue3 SFC `<script setup>` 写法,不支持 Vue2;
