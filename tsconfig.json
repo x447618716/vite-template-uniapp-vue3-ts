@@ -10,7 +10,7 @@
         "moduleResolution": "bundler", // 指定TypeScript如何从给定的模块说明符查找文件
         "esModuleInterop": true, // 允许export=导出，由import from 导入
         "lib": ["ESNext", "DOM"], // TS需要引用的库
-        "types": ["@dcloudio/types", "@types/node"], // 指定要包含的类型包名，而不需要在源文件中引用
+        "types": ["@dcloudio/types", "uview-plus/types", "@types/node"], // 指定要包含的类型包名，而不需要在源文件中引用
         "removeComments": true, // 删除注释
         "paths": {
             "@/*": ["./src/*"]
