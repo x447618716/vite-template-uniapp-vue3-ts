@@ -1,4 +1,4 @@
-import { PageDto } from '@/services/dto/conmmon';
+import type { PageDto } from '@/services/dto/conmmon';
 
 /**
  * 获取组织管理专题列表DTO
@@ -97,7 +97,6 @@ export interface AddCommentDto {
      * 用户姓名
      */
     userName?: string;
-    [property: string]: any;
 }
 
 /**
@@ -183,7 +182,6 @@ export interface CommentReplyDto {
      * 用户姓名
      */
     userName?: string;
-    [property: string]: any;
 }
 
 /**

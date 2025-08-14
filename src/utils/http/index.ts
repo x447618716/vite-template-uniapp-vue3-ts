@@ -1,18 +1,19 @@
 import { createAlova } from 'alova';
 import AdapterUniapp from '@alova/adapter-uniapp';
-import { getBaseUrl } from '@/utils/env';
 import { assign } from 'lodash-es';
+
+import { getBaseUrl } from '@/utils/env';
 import { useAuthStore } from '@/stores/modules/auth';
 import { checkStatus } from '@/utils/http/checkStatus';
 import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
 import { Toast } from '@/utils/uniapi/prompt';
-import { BaseResponse, BaseResponsePage } from '@/services/vo/conmmon';
+import type { BaseResponse, BaseResponsePage } from '@/services/vo/conmmon';
 
 const BASE_URL = getBaseUrl();
 
 const HEADER = {
     'Content-Type': ContentTypeEnum.JSON,
-    Accept: 'application/json, text/plain, */*',
+    Accept: 'application/json, text/plain, */*'
 };
 
 /**
@@ -24,7 +25,7 @@ const alovaInstance = createAlova({
     ...AdapterUniapp(),
     timeout: 10000,
     cacheFor: null, // 完全禁用缓存
-    beforeRequest: (method) => {
+    beforeRequest: method => {
         const authStore = useAuthStore();
         method.config.headers = assign(method.config.headers, HEADER, authStore.getAuthorization);
     },
@@ -35,19 +36,21 @@ const alovaInstance = createAlova({
                 checkStatus(statusCode, '服务不可用,请稍后重试！');
                 return Promise.reject(response);
             }
-            const { code, msg } = data as BaseResponse<any> | BaseResponsePage<any>;
+            const { code, msg } = data as BaseResponse<null> | BaseResponsePage<null>;
             const authStore = useAuthStore();
             if (code === ResultEnum.ACCESS_TOKEN_EXPIRED) {
                 const isSuccess = await authStore.refresh();
                 if (isSuccess) {
-                    return method.send();
+                    await method.send();
                 } else {
-                    return await uni.reLaunch({ url: '/pages/login/index' });
+                    await uni.reLaunch({ url: '/pages/login/index' });
                 }
+                return;
             }
             if (code === ResultEnum.REFRESH_TOKEN_EXPIRED) {
                 authStore.clear();
-                return await uni.reLaunch({ url: '/pages/login/index' });
+                await uni.reLaunch({ url: '/pages/login/index' });
+                return;
             }
             if (code !== ResultEnum.SUCCESS) {
                 checkStatus(code, msg);
@@ -56,11 +59,11 @@ const alovaInstance = createAlova({
                 return Promise.resolve(data);
             }
         },
-        onError: (err, method) => {
-            Toast(err);
+        onError: (err: object, method) => {
+            Toast(err.toString());
             return Promise.reject({ err, method });
-        },
-    },
+        }
+    }
 });
 
 export const request = alovaInstance;

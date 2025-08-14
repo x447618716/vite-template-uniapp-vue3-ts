@@ -1,10 +1,8 @@
 @import 'weapp-tailwindcss/css';
 @source not "dist";
 page {
-    background-color: #f7f7f7;
-    font-family:
-        PingFang SC,
-        sans-serif;
+    background-color: #ffffff;
+    font-family: PingFangSC-Regular, sans-serif;
 }
 ::-webkit-scrollbar {
     display: none;

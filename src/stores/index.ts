@@ -16,7 +16,7 @@ const serialize = (state: StateTree) => {
 const deserialize = (encrypted: string) => {
     const bytes = CryptoJS.AES.decrypt(encrypted, encryptionKey);
     const originalText = bytes.toString(CryptoJS.enc.Utf8);
-    return JSON.parse(originalText);
+    return JSON.parse(originalText) as object;
 };
 
 const pinia = createPinia();
@@ -24,13 +24,13 @@ pinia.use(
     createPersistedState({
         storage: {
             setItem: (key, value) => uni.setStorageSync(key, value),
-            getItem: (key) => uni.getStorageSync(key),
+            getItem: key => uni.getStorageSync(key)
         },
         serializer: {
-            deserialize: process.env.NODE_ENV !== 'development' ? deserialize : (state) => JSON.parse(state),
-            serialize: process.env.NODE_ENV !== 'development' ? serialize : (state) => JSON.stringify(state),
-        },
-    }),
+            deserialize: process.env.NODE_ENV !== 'development' ? deserialize : state => JSON.parse(state) as object,
+            serialize: process.env.NODE_ENV !== 'development' ? serialize : state => JSON.stringify(state)
+        }
+    })
 );
 
 export default pinia;

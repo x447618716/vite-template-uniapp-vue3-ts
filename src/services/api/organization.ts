@@ -1,6 +1,6 @@
 import { request } from '@/utils/http';
-import { BaseResponse, BaseResponsePage } from '@/services/vo/conmmon';
-import {
+import type { BaseResponse, BaseResponsePage } from '@/services/vo/conmmon';
+import type {
     ClassifyListVo,
     CollectVo,
     OrganizationListVo,
@@ -9,9 +9,9 @@ import {
     SearchListVo,
     UnionCommentListVo,
     UnionCommentReplyListVo,
-    VideoListVo,
+    VideoListVo
 } from '@/services/vo/organization';
-import {
+import type {
     AddCommentDto,
     addCommentUpvoteDto,
     CommentReplyDto,
@@ -21,9 +21,9 @@ import {
     UnionCommentListDto,
     UnionCommentReplyListDto,
     UnionReadDto,
-    VideoDetailDto,
+    VideoDetailDto
 } from '@/services/dto/organization';
-import { PageDto } from '@/services/dto/conmmon';
+import type { PageDto } from '@/services/dto/conmmon';
 
 /**
  * 专题轮播列表
@@ -42,7 +42,7 @@ export const getOrgSubjectList = (data: OrgSubjectListDto) =>
     request.Post<BaseResponsePage<OrganizationListVo[]>>(`/union-serve/app/unionOrgInfo/getOrgSubjectList?pageNum=${data.pageNum}&pageSize=${data.pageSize}`, {
         type: data.type,
         sort: data.sort,
-        unionInfoId: data.unionInfoId,
+        unionInfoId: data.unionInfoId
     });
 
 /**
@@ -50,7 +50,7 @@ export const getOrgSubjectList = (data: OrgSubjectListDto) =>
  * */
 export const getSearchList = (data: SearchListDto) =>
     request.Post<BaseResponsePage<SearchListVo[]>>(`/union-serve/app/unionOrgInfo/getSearchList?pageNum=${data.pageNum}&pageSize=${data.pageSize}`, {
-        keyword: data.keyword,
+        keyword: data.keyword
     });
 
 /**
@@ -58,7 +58,7 @@ export const getSearchList = (data: SearchListDto) =>
  * */
 export const getVideoList = (data: PageDto) =>
     request.Get<BaseResponsePage<VideoListVo[]>>('/union-serve/app/unionOrgInfo/getVideoList', {
-        params: data,
+        params: data
     });
 
 /**
@@ -76,7 +76,7 @@ export const getVideoRandom = () => request.Get<BaseResponse<VideoListVo[]>>('/u
  * */
 export const getOrgInfoDetail = (data: OrgInfoDetailDto) =>
     request.Get<BaseResponse<OrgInfoDetailVo>>('/union-serve/app/unionOrgInfo/getOrgInfoDetail', {
-        params: data,
+        params: data
     });
 
 /**
@@ -91,7 +91,7 @@ export const addCommentUpvote = (data: addCommentUpvoteDto) =>
     request.Post<BaseResponse<boolean>>('/union-serve/app/unionOrgInfo/addCommentUpvote', {
         ...data,
         moduleCode: 'union_serve',
-        type: 'ORG_INFO',
+        type: 'ORG_INFO'
     });
 
 /**
@@ -102,8 +102,8 @@ export const getUnionCommentList = (data: UnionCommentListDto) =>
         `/union-serve/app/unionOrgInfo/getUnionCommentList?pageNum=${data.pageNum}&pageSize=${data.pageSize}`,
         {
             userId: data.userId,
-            contentId: data.contentId,
-        },
+            contentId: data.contentId
+        }
     );
 
 /**
@@ -115,8 +115,8 @@ export const getUnionCommentReplyList = (data: UnionCommentReplyListDto) =>
         {
             userId: data.userId,
             contentId: data.contentId,
-            commentId: data.commentId,
-        },
+            commentId: data.commentId
+        }
     );
 
 /**
@@ -128,10 +128,10 @@ export const addCommentReply = (data: CommentReplyDto) => request.Post<BaseRespo
  * 记录读数
  * */
 export const saveUnionRead = (data: UnionReadDto) =>
-    request.Post<BaseResponse<any>>('/union-serve/union-read/saveUnionRead', {
+    request.Post<BaseResponse<boolean>>('/union-serve/union-read/saveUnionRead', {
         ...data,
         moduleCode: 'ORG_INFO',
-        scene: '组织管理',
+        scene: '组织管理'
     });
 
 /**
@@ -142,7 +142,8 @@ export const isCollect = (data: UnionReadDto) => request.Post<BaseResponse<Colle
 /**
  * 新增/修改收藏
  * */
-export const saveOrUpdateUnionCollect = (data: UnionReadDto) => request.Post<BaseResponse<any>>('/union-serve/union-collect/saveOrUpdateUnionCollect', data);
+export const saveOrUpdateUnionCollect = (data: UnionReadDto) =>
+    request.Post<BaseResponse<boolean>>('/union-serve/union-collect/saveOrUpdateUnionCollect', data);
 
 /**
  * 是否点赞
@@ -152,4 +153,4 @@ export const isUpvote = (data: UnionReadDto) => request.Post<BaseResponse<Collec
 /**
  * 新增/修改点赞
  * */
-export const saveOrUpdateUnionUpvote = (data: UnionReadDto) => request.Post<BaseResponse<any>>('/union-serve/union-upvote/saveOrUpdateUnionUpvote', data);
+export const saveOrUpdateUnionUpvote = (data: UnionReadDto) => request.Post<BaseResponse<boolean>>('/union-serve/union-upvote/saveOrUpdateUnionUpvote', data);

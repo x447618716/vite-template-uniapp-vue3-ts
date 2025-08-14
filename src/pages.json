@@ -3,203 +3,45 @@
     "pages": [
         {
             "name": "Home",
-            "path": "pages/index/index",
+            "path": "pages/home/home",
             "style": {
-                "navigationBarTitleText": "首页"
+                "navigationBarTitleText": "首页",
+                "enablePullDownRefresh": false
             }
         },
         {
             "name": "Login",
-            "path": "pages/login/index",
-            "style": {
-                "navigationStyle": "custom",
-                "h5": {
-                    "titleNView": false
-                }
-            },
-            "meta": {
-                "ignoreAuth": true
-            }
-        },
-        {
-            "name": "Message",
-            "path": "pages/message/index",
-            "style": {
-                "navigationBarTitleText": "消息"
-            }
-        },
-        {
-            "name": "UnionServices",
-            "path": "pages/unionServices/index",
-            "style": {
-                "navigationBarTitleText": "工会服务"
-            }
-        },
-        {
-            "name": "Organization",
-            "path": "pages/organization/index",
-            "style": {
-                "navigationBarTitleText": "组织管理"
-            }
-        },
-        {
-            "name": "OrganizationVideo",
-            "path": "pages/video/index",
+            "path": "pages/login/login",
             "style": {
                 "navigationStyle": "custom"
-            }
-        },
-        {
-            "name": "OrganizationSearch",
-            "path": "pages/organizationSearch/index",
-            "style": {
-                "navigationBarTitleText": "搜索"
-            }
-        },
-        {
-            "name": "OrganizationDetails",
-            "path": "pages/organizationDetails/index"
-        },
-
-        {
-            "name": "Mall",
-            "path": "pages/mall/index",
-            "style": {
-                "navigationBarTitleText": "商城",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "About",
-            "path": "pages/about/index",
-            "style": {
-                "navigationBarTitleText": "个人中心",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "Address",
-            "path": "pages/address/myAddress",
-            "style": {
-                "navigationBarTitleText": "收货地址管理",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "EditAddress",
-            "path": "pages/address/editAddress",
-            "style": {
-                "navigationBarTitleText": "新增地址管理",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "ShoppingCart",
-            "path": "pages/shoppingCart/shoppingCart",
-            "style": {
-                "navigationBarTitleText": "购物车",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "OrderConfirmation",
-            "path": "pages/shoppingCart/orderConfirmation",
-            "style": {
-                "navigationBarTitleText": "订单确认",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "Article",
-            "path": "pages/article/article",
-            "style": {
-                "navigationBarTitleText": "文章详情",
-                "navigationBarTextStyle": "black",
-                "backgroundColor": "#F8F8F8",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "CommentList",
-            "path": "pages/article/comment-list",
-            "style": {
-                "navigationBarTitleText": "评论列表",
-                "navigationBarTextStyle": "black",
-                "backgroundColor": "#F5F5F5",
-                "h5": {
-                    "titleNView": false
-                }
-            }
-        },
-        {
-            "name": "NotFound",
-            "path": "pages/notFound/404",
-            "style": {
-                "navigationBarTitleText": "Not Found",
-                "h5": {
-                    "titleNView": false
-                }
             },
             "meta": {
                 "ignoreAuth": true
             }
-        }
-    ],
-    "subPackages": [
-        {
-            "root": "pagesA",
-            "pages": [
-                {
-                    "name": "test1",
-                    "path": "list/test1/index",
-                    "style": {
-                        "navigationBarTitleText": "test1"
-                    },
-                    "meta": {
-                        "ignoreAuth": true
-                    }
-                },
-                {
-                    "name": "test2",
-                    "path": "list/test2/index",
-                    "style": {
-                        "navigationBarTitleText": "test2",
-                        "navigationStyle": "custom"
-                    },
-                    "meta": {
-                        "ignoreAuth": true
-                    }
-                }
-            ]
         },
         {
-            "root": "pagesB",
-            "pages": [
-                {
-                    "name": "Detail",
-                    "path": "detail/index",
-                    "style": {
-                        "navigationBarTitleText": "Detail"
-                    },
-                    "meta": {
-                        "ignoreAuth": true
-                    }
-                }
-            ]
+            "name": "Categorize",
+            "path": "pages/categorize/categorize",
+            "style": {
+                "navigationBarTitleText": "分类",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "name": "Cart",
+            "path": "pages/cart/cart",
+            "style": {
+                "navigationBarTitleText": "购物车",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "name": "Mine",
+            "path": "pages/mine/mine",
+            "style": {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {
@@ -217,26 +59,26 @@
         "backgroundColor": "#FFFFFF",
         "list": [
             {
-                "pagePath": "pages/index/index",
+                "pagePath": "pages/home/home",
                 "text": "首页",
                 "iconPath": "static/tabBar/homeNormal.png",
                 "selectedIconPath": "static/tabBar/homeActive.png"
             },
             {
-                "pagePath": "pages/mall/index",
-                "text": "电商选货",
+                "pagePath": "pages/categorize/categorize",
+                "text": "分类",
                 "iconPath": "static/tabBar/shopNormal.png",
                 "selectedIconPath": "static/tabBar/shopActive.png"
             },
             {
-                "pagePath": "pages/shoppingCart/shoppingCart",
+                "pagePath": "pages/cart/cart",
                 "text": "购物车",
                 "iconPath": "static/tabBar/cartNormal.png",
                 "selectedIconPath": "static/tabBar/cartActive.png"
             },
             {
-                "pagePath": "pages/about/index",
-                "text": "个人中心",
+                "pagePath": "pages/mine/mine",
+                "text": "我的",
                 "iconPath": "static/tabBar/mineNormal.png",
                 "selectedIconPath": "static/tabBar/mineActive.png"
             }

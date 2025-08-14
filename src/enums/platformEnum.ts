@@ -20,7 +20,7 @@ export enum PLATFORMS {
     MP = 'MP' /* 微信小程序/支付宝小程序/百度小程序/字节跳动小程序/飞书小程序/QQ小程序/360小程序 */,
     QUICKAPP_WEBVIEW = 'QUICKAPP-WEBVIEW' /* 快应用通用(包含联盟、华为) */,
     QUICKAPP_WEBVIEW_UNION = 'QUICKAPP-WEBVIEW-UNION' /* 快应用联盟 */,
-    QUICKAPP_WEBVIEW_HUAWEI = 'QUICKAPP-WEBVIEW-HUAWEI' /* 快应用华为 */,
+    QUICKAPP_WEBVIEW_HUAWEI = 'QUICKAPP-WEBVIEW-HUAWEI' /* 快应用华为 */
 }
 
 /* 当前平台 */

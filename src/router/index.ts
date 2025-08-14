@@ -1,8 +1,11 @@
 import { createRouter } from 'uni-mini-router';
-import pagesJson from '../pages.json';
 import pagesJsonToRoutes from 'uni-parse-pages';
 import type { Route } from 'uni-mini-router/lib/interfaces';
+
 import { useAuthStore } from '@/stores/modules/auth';
+
+import pagesJson from '../pages.json';
+
 const routes = pagesJsonToRoutes(pagesJson);
 
 interface Meta {
@@ -14,7 +17,7 @@ interface CustomRoute extends Route {
 }
 
 const router = createRouter({
-    routes: [...routes], // 路由表信息
+    routes: [...routes] // 路由表信息
 });
 
 router.beforeEach((to: CustomRoute, _, next) => {

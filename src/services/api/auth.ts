@@ -1,7 +1,7 @@
 import { request } from '@/utils/http';
-import { LoginDto, RefreshDto } from '@/services/dto/auth';
-import { LoginVo } from '@/services/vo/auth';
-import { BaseResponse } from '@/services/vo/conmmon';
+import type { LoginDto, RefreshDto } from '@/services/dto/auth';
+import type { LoginVo } from '@/services/vo/auth';
+import type { BaseResponse } from '@/services/vo/conmmon';
 
 /**
  * 刷新token
@@ -28,5 +28,3 @@ export const isLogin = () => request.Get<BaseResponse<boolean>>('/union-member/a
  * 判断当前会员是否为干部
  * */
 export const judgeUserIsLeader = () => request.Get<BaseResponse<boolean>>('/union-serve/app/unionOrgInfo/judgeUserIsLeader');
-
-export const test = () => request.Get<BaseResponse<any>>('/union-member/api/member/tokenInfo');

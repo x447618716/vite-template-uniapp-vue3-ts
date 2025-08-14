@@ -10,7 +10,7 @@ export interface AddressData {
 
 export const useAddressStore = defineStore('address', {
     state: () => ({
-        editAddressData: null as AddressData | null,
+        editAddressData: null as AddressData | null
     }),
     actions: {
         setEditAddressData(data: AddressData | null) {
@@ -18,6 +18,6 @@ export const useAddressStore = defineStore('address', {
         },
         clearEditAddressData() {
             this.editAddressData = null;
-        },
-    },
+        }
+    }
 });

@@ -10,6 +10,6 @@ export const useGlobalStyle = () => {
         navigationBarTextStyle,
         navigationBarTitleText,
         navigationBarBackgroundColor,
-        backgroundColor,
+        backgroundColor
     };
 };

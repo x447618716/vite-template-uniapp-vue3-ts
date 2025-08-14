@@ -15,7 +15,7 @@ export function Toast(title: string, options?: Partial<UniApp.ShowToastOptions>)
         duration: 1500,
         icon: 'none',
         mask: true,
-        ...options,
+        ...options
     });
 }
 
@@ -36,7 +36,7 @@ export function Loading(title: string, options?: Partial<UniApp.ShowLoadingOptio
     uni.showLoading({
         title,
         mask: true,
-        ...options,
+        ...options
     });
 }
 
@@ -56,12 +56,12 @@ export function Modal(options: UniApp.ShowModalOptions) {
     return new Promise((resolve, reject) => {
         uni.showModal({
             ...options,
-            success: (res) => {
+            success: res => {
                 resolve(res);
             },
-            fail: (res) => {
+            fail: res => {
                 reject(res);
-            },
+            }
         });
     });
 }
@@ -75,12 +75,12 @@ export function ActionSheet(options: UniApp.ShowActionSheetOptions) {
     return new Promise((resolve, reject) => {
         uni.showActionSheet({
             ...options,
-            success: (res) => {
+            success: res => {
                 resolve(res);
             },
-            fail: (res) => {
+            fail: res => {
                 reject(res);
-            },
+            }
         });
     });
 }
