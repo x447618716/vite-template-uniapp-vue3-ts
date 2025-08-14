@@ -5,7 +5,7 @@
 ```
 ## 开发建议
 
-当使用webstorm进行项目开发时建议安装以下插件：
+如果你是使用webstorm进行项目开发时建议安装以下插件：
 
 1. **Uniapp Tool** 这是一款免费的Uniapp插件，为uniapp项目提供内置组件语法提示以及easycom 组件等支持
 2. **Git Commit Template** 这是一款符合Conventional Commits规范的模版工具
@@ -98,7 +98,6 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 │   │
 │   ├─static # 静态公共文件
 │   │   ├─ images # 图片
-│   │   │    ├─avatar.png
 │   │   │    └─...
 │   │   │
 │   │   └─ ...
