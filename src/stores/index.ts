@@ -1,7 +1,7 @@
-import { createPinia } from 'pinia';
-import { createPersistedState } from 'pinia-plugin-persistedstate';
-import type { StateTree } from 'pinia';
 import CryptoJS from 'crypto-es';
+import { createPinia } from 'pinia';
+import type { StateTree } from 'pinia';
+import { createPersistedState } from 'pinia-plugin-persistedstate';
 
 // 加密密钥，可根据实际情况修改
 const encryptionKey = 'UNION-APP-@#@##@###@';

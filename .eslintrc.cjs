@@ -21,7 +21,7 @@ module.exports = {
         extraFileExtensions: ['.vue']
     },
     /**定义文件继承的子规范 */
-    extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'plugin:@typescript-eslint/recommended', 'plugin:import/recommended'],
+    extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:import/recommended'],
     plugins: ['vue', '@typescript-eslint', 'import'],
     rules: {
         /**
@@ -29,6 +29,51 @@ module.exports = {
          * 目的：鼓励使用 let 和 const，以避免变量提升（hoisting）和作用域混乱的问题。
          * */
         'no-var': 'warn',
+        /**
+         * 作用：推荐使用 const 而不是 let，除非变量需要重新赋值。
+         * 目的：提升代码可读性与不变性。
+         * */
+        'prefer-const': 'warn',
+        /**
+         * 作用：禁止使用 console.*。
+         * 目的：避免生产环境输出调试信息。
+         * */
+        'no-console': 'off',
+        /**
+         * 作用：鼓励使用解构赋值。
+         * 目的：提升代码简洁性与可读性。
+         * */
+        'prefer-destructuring': 'warn',
+        /**
+         * 作用：限制函数参数数量（建议 ≤5）。
+         * 目的：提高函数的可读性和可测试性。
+         * */
+        'max-params': ['warn', 5],
+        /**
+         * 作用：限制函数体内的语句数量（建议 ≤30）。
+         * 目的：避免函数过长，提升可维护性。
+         * */
+        'max-statements': ['warn', 30],
+        /**
+         * 作用：禁止嵌套三元表达式。
+         * 目的：避免逻辑复杂度过高，影响可读性。
+         * */
+        'no-nested-ternary': 'warn',
+        /**
+         * 作用：禁止使用 eval()。
+         * 目的：避免潜在的安全漏洞。
+         * */
+        'no-eval': 'error',
+        /**
+         * 作用：禁止使用 with 语句。
+         * 目的：避免作用域混乱和性能问题。
+         * */
+        'no-with': 'error',
+        /**
+         * 作用：禁止在 setTimeout、setInterval 中使用字符串作为函数体。
+         * 目的：避免隐式调用 eval。
+         * */
+        'no-implied-eval': 'error',
         /**
          * 作用：要求变量名和属性名使用驼峰命名法（如 userName，而非 user_name）。
          * 目的：保持代码一致性，符合 JavaScript 社区惯例。
@@ -108,19 +153,13 @@ module.exports = {
          * */
         '@typescript-eslint/no-empty-function': 'error',
         /**
-         * 作用：允许使用 // @ts-ignore 或 // @ts-nocheck。
+         * 作用：不允许使用 // @ts-ignore 或 // @ts-nocheck。
          * 目的：允许临时绕过类型检查。
          * 建议：应尽量避免使用，并注明原因。
          * */
-        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/ban-ts-comment': 'warn',
         /**
-         * 作用：允许使用如 {}、Object、Function 等类型。
-         * 目的：提升开发灵活性。
-         * 风险：这些类型过于宽泛，不利于类型安全。
-         * */
-        '@typescript-eslint/ban-types': 'off',
-        /**
-         * 作用：允许使用非空断言操作符 !。
+         * 作用：不允许使用非空断言操作符 !。
          * 目的：简化类型推断，开发者自行承担风险。
          * 示例：
          * ```ts
@@ -128,7 +167,7 @@ module.exports = {
          * ```
          * 建议：仅在确保变量不会为 null 时使用。
          * */
-        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'warn',
         /**
          * 作用：禁止直接使用未命名的数字常量（如 if (status === 3)）。
          * 目的：提升代码可解释性
@@ -152,6 +191,26 @@ module.exports = {
                 ignoreNumericLiteralTypes: true // 忽略如`type: 1`的类型定义
             }
         ],
+        /**
+         * 作用：防止未处理的 Promise。
+         * 目的：避免因未捕获 Promise 异常而导致的静默失败。
+         * */
+        '@typescript-eslint/no-floating-promises': 'error',
+        /**
+         * 作用：禁止在条件语句中使用总是为真或假的表达式。
+         * 目的：提升代码逻辑的严谨性和可读性。
+         * */
+        '@typescript-eslint/no-unnecessary-condition': 'warn',
+        /**
+         * 作用：鼓励使用 ?? 而非 ||。
+         * 目的：避免 0、'' 等“假值”被错误地替换。
+         * */
+        '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+        /**
+         * 作用：鼓励使用 ?. 替代 && 链式访问。
+         * 目的：提高代码简洁性和可读性。
+         * */
+        '@typescript-eslint/prefer-optional-chain': 'warn',
         /**
          * 作用：强制为 Vue 组件的 props 定义类型。
          * 目的：增强组件接口的可读性和可维护性
@@ -183,16 +242,34 @@ module.exports = {
          * */
         'vue/multi-word-component-names': 'off',
         /**
-         * 作用：允许不闭合自闭合标签（如 <img> 而不是 <img />）。
+         * 作用：不允许不闭合自闭合标签（如 <img> 而不是 <img />）。
          * 目的：兼容 HTML 习惯，便于非 Vue 开发者阅读。
          * 适用场景：团队中 HTML 与 Vue 混合开发较多。
          * */
-        'vue/html-self-closing': 'off',
+        'vue/html-self-closing': [
+            'warn',
+            {
+                html: {
+                    void: 'always',
+                    normal: 'never'
+                }
+            }
+        ],
         /**
          * 作用：检测并报错未使用的 Vue 组件。
          * 目的：清理冗余代码，提升构建效率。
          * */
         'vue/no-unused-components': 'error',
+        /**
+         * 作用：强制为 Vue 组件的 props 设置默认值（除非指定为 required）。
+         * 目的：增强组件的健壮性和可复用性。
+         * */
+        'vue/require-default-prop': 'warn',
+        /**
+         * 作用：禁止在 Vue 模板中使用驼峰命名的属性名。
+         * 目的：避免与 HTML 规范冲突（HTML 属性应使用短横线命名）。
+         * */
+        'vue/attribute-hyphenation': 'error',
         /**
          * 作用：禁止模块循环依赖（需安装 eslint-plugin-import）。
          * 目的：避免代码耦合和不可预测的加载问题 2
@@ -205,9 +282,21 @@ module.exports = {
             'warn',
             {
                 groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-                'newlines-between': 'always'
+                'newlines-between': 'always',
+                alphabetize: { order: 'asc', caseInsensitive: true }
             }
         ],
+        /**
+         * 作用：检查模块路径是否可解析。
+         * 目的：避免因路径错误导致构建失败。
+         * 需配合 eslint-import-resolver-typescript 插件使用
+         * */
+        'import/no-unresolved': 'error',
+        /**
+         * 作用：强制在 import 语句后添加空行。
+         * 目的：提升代码清晰度。
+         * */
+        'import/newline-after-import': 'warn',
         /**
          * 作用：限制单个函数行数（建议 50 行内）。
          * 目的：避免函数过于复杂，提升可测试性
@@ -221,13 +310,12 @@ module.exports = {
         /**
          * 作用：限制代码块嵌套深度（建议不超过4层）
          * */
-        'max-depth': ['warn', 4],
-
+        'max-depth': ['warn', 4]
     },
     settings: {
         'import/resolver': {
             typescript: {
-                project: "./tsconfig.json"
+                project: './tsconfig.json'
             }
         }
     },

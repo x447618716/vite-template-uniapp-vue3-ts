@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
-import { logout, refreshAccessToken } from '@/services/api/auth';
 import { ResultEnum } from '@/enums/httpEnum';
+import { logout, refreshAccessToken } from '@/services/api/auth';
 
 interface AccountInfo {
     loginAccount: string;
@@ -51,8 +51,8 @@ export const useAuthStore = defineStore('authStore', {
                 refreshToken: this.refreshToken
             });
             if (code == ResultEnum.SUCCESS) {
-                this.accessToken = data?.accessToken || '';
-                this.refreshToken = data?.refreshToken || '';
+                this.accessToken = data?.accessToken ?? '';
+                this.refreshToken = data?.refreshToken ?? '';
                 return true;
             } else {
                 return false;

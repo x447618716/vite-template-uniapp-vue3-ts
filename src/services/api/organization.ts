@@ -1,16 +1,4 @@
-import { request } from '@/utils/http';
-import type { BaseResponse, BaseResponsePage } from '@/services/vo/conmmon';
-import type {
-    ClassifyListVo,
-    CollectVo,
-    OrganizationListVo,
-    OrgInfoDetailVo,
-    PopularityListVo,
-    SearchListVo,
-    UnionCommentListVo,
-    UnionCommentReplyListVo,
-    VideoListVo
-} from '@/services/vo/organization';
+import type { PageDto } from '@/services/dto/conmmon';
 import type {
     AddCommentDto,
     addCommentUpvoteDto,
@@ -23,7 +11,19 @@ import type {
     UnionReadDto,
     VideoDetailDto
 } from '@/services/dto/organization';
-import type { PageDto } from '@/services/dto/conmmon';
+import type { BaseResponse, BaseResponsePage } from '@/services/vo/conmmon';
+import type {
+    ClassifyListVo,
+    CollectVo,
+    OrganizationListVo,
+    OrgInfoDetailVo,
+    PopularityListVo,
+    SearchListVo,
+    UnionCommentListVo,
+    UnionCommentReplyListVo,
+    VideoListVo
+} from '@/services/vo/organization';
+import { request } from '@/utils/http';
 
 /**
  * 专题轮播列表

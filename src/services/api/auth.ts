@@ -1,7 +1,7 @@
-import { request } from '@/utils/http';
 import type { LoginDto, RefreshDto } from '@/services/dto/auth';
 import type { LoginVo } from '@/services/vo/auth';
 import type { BaseResponse } from '@/services/vo/conmmon';
+import { request } from '@/utils/http';
 
 /**
  * 刷新token

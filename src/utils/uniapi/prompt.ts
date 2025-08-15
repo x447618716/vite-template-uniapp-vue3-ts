@@ -10,7 +10,7 @@
  * @constructor
  */
 export function Toast(title: string, options?: Partial<UniApp.ShowToastOptions>) {
-    uni.showToast({
+    void uni.showToast({
         title,
         duration: 1500,
         icon: 'none',
@@ -33,7 +33,7 @@ export function HideToast() {
  * @constructor
  */
 export function Loading(title: string, options?: Partial<UniApp.ShowLoadingOptions>) {
-    uni.showLoading({
+    void uni.showLoading({
         title,
         mask: true,
         ...options

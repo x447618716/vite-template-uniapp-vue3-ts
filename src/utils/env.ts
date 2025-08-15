@@ -33,7 +33,13 @@ export function getEnvMode(): string {
  */
 export function getEnvValue<T = string>(key: keyof ImportMetaEnv): T {
     const envValue = import.meta.env[key];
-    return (envValue === 'true' ? true : envValue === 'false' ? false : envValue) as unknown as T;
+    if (envValue === 'true') {
+        return true as unknown as T;
+    } else if (envValue === 'false') {
+        return false as unknown as T;
+    } else {
+        return envValue as unknown as T;
+    }
 }
 
 /**

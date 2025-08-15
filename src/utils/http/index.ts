@@ -1,13 +1,13 @@
-import { createAlova } from 'alova';
 import AdapterUniapp from '@alova/adapter-uniapp';
+import { createAlova } from 'alova';
 import { assign } from 'lodash-es';
 
-import { getBaseUrl } from '@/utils/env';
-import { useAuthStore } from '@/stores/modules/auth';
-import { checkStatus } from '@/utils/http/checkStatus';
 import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
-import { Toast } from '@/utils/uniapi/prompt';
 import type { BaseResponse, BaseResponsePage } from '@/services/vo/conmmon';
+import { useAuthStore } from '@/stores/modules/auth';
+import { getBaseUrl } from '@/utils/env';
+import { checkStatus } from '@/utils/http/checkStatus';
+import { Toast } from '@/utils/uniapi/prompt';
 
 const BASE_URL = getBaseUrl();
 
