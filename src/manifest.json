@@ -97,9 +97,7 @@
             "mode": "hash",
             "base": "./"
         },
-        "devServer": {
-            "https": false
-        },
+        "devServer": {},
         "title": "福海创-用户端",
         "unipush": {
             "enable": false
