@@ -5,10 +5,13 @@ import uni from '@dcloudio/vite-plugin-uni';
 import { UnifiedViteWeappTailwindcssPlugin } from 'weapp-tailwindcss/vite';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from '@tailwindcss/postcss';
+import visualizer from 'rollup-plugin-visualizer';
+import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig(({ mode }) => {
     const root = process.cwd();
     const env = loadEnv(mode, root);
+    const isProduction = mode === 'production';
     const isH5 = process.env.UNI_PLATFORM === 'h5';
     const isApp = process.env.UNI_PLATFORM === 'app';
     const WeappTailwindcssDisabled = isH5 || isApp;
@@ -21,9 +24,13 @@ export default defineConfig(({ mode }) => {
             },
             extensions: ['.mjs', '.js', '.json', '.ts', '.vue'] // 使用路径别名时想要省略的后缀名，可以自己 增减
         },
-        // 自定义全局变量
-        define: {
-            'process.env': {}
+        build: {
+            minify: isProduction ? 'terser' : false,
+            terserOptions: isProduction
+                ? {
+                      compress: { drop_console: true }
+                  }
+                : {}
         },
         // 开发服务器配置
         server: {
@@ -49,7 +56,14 @@ export default defineConfig(({ mode }) => {
             UnifiedViteWeappTailwindcssPlugin({
                 rem2rpx: true,
                 disabled: WeappTailwindcssDisabled
-            })
+            }),
+            visualizer({
+                filename: './dist/stats.html', // 报告输出路径
+                open: true, // 构建后自动打开
+                gzipSize: true, // 显示gzip压缩大小
+                brotliSize: true // 显示brotli压缩大小
+            }),
+            basicSsl()
         ]
     };
 });
