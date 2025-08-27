@@ -1,40 +1,37 @@
+import dayjs from 'dayjs';
 import { defineStore } from 'pinia';
 
 import { ResultEnum } from '@/enums/httpEnum';
 import { logout, refreshAccessToken } from '@/services/api/auth';
 
 interface AccountInfo {
-    loginAccount: string;
-    loginMethod: number;
-    loginPwd: string;
+    account: string;
+    password: string;
     remembered: boolean;
 }
 
 interface AuthState {
     accessToken: string;
     refreshToken: string;
+    expiresAt: string;
     accountInfo: AccountInfo;
-    permission: Record<string, boolean>;
 }
 
 export const useAuthStore = defineStore('authStore', {
     state: (): AuthState => ({
         accessToken: '',
         refreshToken: '',
+        expiresAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
         accountInfo: {
-            loginAccount: '',
-            loginMethod: 1,
-            loginPwd: '',
-            remembered: false
-        },
-        permission: {
-            isFunctionary: true
+            account: '',
+            password: '',
+            remembered: true
         }
     }),
     getters: {
-        isLogin: (state): boolean => !!state.accessToken,
+        isLogin: (state): boolean => dayjs().isBefore(dayjs(state.expiresAt)),
         getAuthorization: state => {
-            return state.accessToken ? { satoken: state.accessToken } : {};
+            return state.accessToken ? { Authorization: state.accessToken } : {};
         }
     },
     actions: {
@@ -51,8 +48,9 @@ export const useAuthStore = defineStore('authStore', {
                 refreshToken: this.refreshToken
             });
             if (code == ResultEnum.SUCCESS) {
-                this.accessToken = data?.accessToken ?? '';
-                this.refreshToken = data?.refreshToken ?? '';
+                this.accessToken = data.accessToken;
+                this.refreshToken = data.refreshToken;
+                this.expiresAt = data.expiresAt;
                 return true;
             } else {
                 return false;

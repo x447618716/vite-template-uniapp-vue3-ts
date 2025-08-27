@@ -4,4 +4,5 @@
 export interface LoginVo {
     accessToken: string;
     refreshToken: string;
+    expiresAt: string;
 }

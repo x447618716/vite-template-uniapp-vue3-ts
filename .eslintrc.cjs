@@ -21,7 +21,7 @@ module.exports = {
         extraFileExtensions: ['.vue']
     },
     /**定义文件继承的子规范 */
-    extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:import/recommended'],
+    extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'plugin:@typescript-eslint/recommended', 'plugin:import/recommended'],
     plugins: ['vue', '@typescript-eslint', 'import'],
     rules: {
         /**

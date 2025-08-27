@@ -3,6 +3,7 @@
 ```bash
  npx degit x447618716/vite-template-uniapp-vue3-ts#main my-project
 ```
+
 ## 开发建议
 
 如果你是使用webstorm进行项目开发时建议安装以下插件：
@@ -11,30 +12,29 @@
 2. **Git Commit Template** 这是一款符合Conventional Commits规范的模版工具
 3. **uniapp-pages-schema.json** 这是一个JSON Schema主要为pages.json提供语法提示（目前只标注部分属性可自行添加）
 
-
 ## 安装
 
--   安装依赖
+- 安装依赖
 
 ```bash
 pnpm install
 ```
 
--   运行
+- 运行
 
 ```bash
 # 其他端请查看 package.json script
 pnpm dev:h5
 ```
 
--   打包
+- 打包
 
 ```bash
 # 其他端请查看 package.json script
 pnpm build:h5
 ```
 
--   更新依赖到最新（uni-app 有新版本发布）
+- 更新依赖到最新（uni-app 有新版本发布）
 
 ```bash
 pnpm up
@@ -42,21 +42,36 @@ pnpm up
 npx @dcloudio/uvm 3.7.2.20230217-alpha
 ```
 
-## 说明
-
--   使用 uni-app Vue3 Vite4 pinia2 TypeScript 基础框架
--   框架完全基于 Vue3 SFC `<script setup>` 写法,不支持 Vue2;
--   [代码规范 & 详细解释 husky、prettier、eslint、lint-staged 的作用和使用](https://blog.csdn.net/cookcyq__/article/details/125457031)
-
 ## 特性
 
--   **最新技术栈**：使用 Vue3/Vite4/pinia ,TypeScript 等前端前沿技术开发;
--   **[Tailwindcss](https://www.tailwindcss.cn)**: 原子化 CSS
--   **Eslint/Prettier**: 规范代码格式,统一编码;
--   **路由拦截**: uni-mini-router,类似 Vue Router 的 API 和功能,在 uni-app 中进行路由跳转、传参、拦截等常用操作;
--   **请求拦截**: 使用[alova 请求](https://github.com/alovajs/alova),支持请求和响应拦截等;
--   **Mock 数据**: 配合 alova 请求的[@alova/mock](https://github.com/alovajs/mock)，模拟 api 请求(App 不支持);
--   **缓存加密**: 支持 AES 加密缓存,可设置区分在开发或生成环境中是否加密;
+- **最新技术栈**：使用 Vue3/Vite/pinia ,TypeScript 等前端前沿技术开发;
+- **[Tailwindcss](https://www.tailwindcss.cn)**: 原子化 CSS
+- **Eslint/Prettier**: 代码检查以及规范代码格式,统一编码;
+- **路由拦截**: uni-mini-router,类似 Vue Router 的 API 和功能,在 uni-app 中进行路由跳转、传参、拦截等常用操作;
+- **请求拦截**: 使用[alova 请求](https://github.com/alovajs/alova),支持请求和响应拦截等;
+- **Mock 数据**: 配合 alova 请求的[@alova/mock](https://github.com/alovajs/mock)，模拟 api 请求(App 不支持);
+- **缓存加密**: 支持 AES 加密缓存,可设置区分在开发或生成环境中是否加密;
+- **[Husky](https://typicode.github.io/husky/zh/)**：Git钩子管理,在提交或推送时，自动化 检查提交信息、检查代码 和 运行测试
+- **[lint-staged](https://github.com/lint-staged/lint-staged)**:Git暂存区,针对阶段性的git文件运行格式化器和检查器等任务，不要让💩溜进代码库！
+- **[commitlint](https://commitlint.js.org/)**:检查提交消息,帮助你的团队遵守提交约定
+
+| 技术栈                        | 说明                         | 官网                                                                                                                                 |
+| ----------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `Vite`                        | 构建工具                     | [https://cn.vitejs.dev/](https://cn.vitejs.dev/)                                                                                     |
+| `TypeScript`                  | 静态语言(JavaScript增强)     | [https://www.typescriptlang.org/zh/](https://www.typescriptlang.org/zh/)                                                             |
+| `Vue3`                        | 前端框架                     | [https://cn.vuejs.org/](https://cn.vuejs.org/)                                                                                       |
+| `Pinia`                       | 状态管理                     | [https://pinia.vuejs.org/](https://pinia.vuejs.org/)                                                                                 |
+| `pinia-plugin-persistedstate` | 状态持久化方案               | [https://prazdevs.github.io/pinia-plugin-persistedstate/zh/](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/)             |
+| `uni-mini-router`             | 路由工具                     | [https://moonofweisheng.github.io/uni-mini-router/](https://moonofweisheng.github.io/uni-mini-router/)                               |
+| `alova`                       | 请求工具(适配uniapp)         | [https://alova.js.org/zh-CN/](https://alova.js.org/zh-CN/)                                                                           |
+| `crypto-es`                   | 加解密方案（CryptoJS的ES版） | [https://github.com/entronad/crypto-es](https://github.com/entronad/crypto-es)                                                       |
+| `Tailwindcss`                 | css原子化                    | [https://www.tailwindcss.cn](https://www.tailwindcss.cn)                                                                             |
+| `weapp-tailwindcss`           | 小程序等适配方案             | [https://tw.icebreaker.top/](https://tw.icebreaker.top/)                                                                             |
+| `prettier`                    | 规范代码格式,统一编码        | [https://prettier.io/docs/](https://prettier.io/docs/)                                                                               |
+| `eslint`                      | 代码检查                     | [https://eslint.org/](https://eslint.org/)                                                                                           |
+| `husky`                       | git钩子管理                  | [https://typicode.github.io/husky/zh/](https://typicode.github.io/husky/zh/)                                                         |
+| `lint-staged`                 | git暂存区                    | [https://www.npmjs.com/package/lint-staged#installation-and-setup](https://www.npmjs.com/package/lint-staged#installation-and-setup) |
+| `commitlint`                  | 检查提交消息                 | [https://commitlint.js.org/](https://commitlint.js.org/)                                                                             |
 
 ## 目录结构
 
@@ -152,30 +167,29 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 
 提交类型必须是以下之一：
 
-| 提交类型       | 标题        | 描述                                                            |
-|------------|-----------|---------------------------------------------------------------|
-| `feat`     | 特征        | 新功能、新特性                                                       |
-| `fix`      | Bug 修复    | bug 修复                                                        |
-| `docs`     | 文档        | 仅文档更改                                                         |
-| `style`    | 风格        | 不影响代码含义的更改（空格、格式、缺少分号等）                                       |
-| `refactor` | 代码重构      | 重构，在不影响代码内部行为，功能下的代码修改                                        |
-| `perf`     | 性能改进      | 更改代码，以提高性能                                                    |
-| `test`     | 测试        | 添加缺失的测试或纠正现有的测试                                               |
-| `build`    | 构建        | 影响构建系统或外部依赖项的更改（示例范围：gulp、broccoli、npm）                       |
-| `ci`       | 持续集成      | 对我们的 CI 配置文件和脚本的更改（示例范围：Travis、Circle、BrowserStack、SauceLabs） |
-| `chore`    | 其他文件修改    | 不修改 src 或测试文件的其他更改                                            |
-| `revert`   | 还原        | 恢复之前的提交                                                       |
-
+| 提交类型   | 标题         | 描述                                                                                  |
+| ---------- | ------------ | ------------------------------------------------------------------------------------- |
+| `feat`     | 特征         | 新功能、新特性                                                                        |
+| `fix`      | Bug 修复     | bug 修复                                                                              |
+| `docs`     | 文档         | 仅文档更改                                                                            |
+| `style`    | 风格         | 不影响代码含义的更改（空格、格式、缺少分号等）                                        |
+| `refactor` | 代码重构     | 重构，在不影响代码内部行为，功能下的代码修改                                          |
+| `perf`     | 性能改进     | 更改代码，以提高性能                                                                  |
+| `test`     | 测试         | 添加缺失的测试或纠正现有的测试                                                        |
+| `build`    | 构建         | 影响构建系统或外部依赖项的更改（示例范围：gulp、broccoli、npm）                       |
+| `ci`       | 持续集成     | 对我们的 CI 配置文件和脚本的更改（示例范围：Travis、Circle、BrowserStack、SauceLabs） |
+| `chore`    | 其他文件修改 | 不修改 src 或测试文件的其他更改                                                       |
+| `revert`   | 还原         | 恢复之前的提交                                                                        |
 
 ### 提交别名
 
-| 提交类型               | 映射到     | 标题   | 描述                  |
-|--------------------|---------|------|---------------------|
-| `initial`          | `feat`  | 最初的  | 初始提交                |
-| `dependencies`     | `fix`   | 依赖项  | 更新依赖项               |
+| 提交类型           | 映射到  | 标题     | 描述                       |
+| ------------------ | ------- | -------- | -------------------------- |
+| `initial`          | `feat`  | 最初的   | 初始提交                   |
+| `dependencies`     | `fix`   | 依赖项   | 更新依赖项                 |
 | `peerDependencies` | `fix`   | 对等依赖 | 更新对等依赖项             |
-| `devDependencies`  | `chore` | 开发依赖 | 更新开发依赖              |
-| `metadata`         | `fix`   | 元数据  | 更新元数据（package.json） |
+| `devDependencies`  | `chore` | 开发依赖 | 更新开发依赖               |
+| `metadata`         | `fix`   | 元数据   | 更新元数据（package.json） |
 
 ### Scope 范围
 
@@ -185,9 +199,9 @@ scope 用于说明 commit 影响的范围，比如数据层、控制层、视图
 
 subject 是 commit 目的的简短描述，不超过 50 个字符。
 
--   以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
--   第一个字母小写
--   结尾不加句号（.）
+- 以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
+- 第一个字母小写
+- 结尾不加句号（.）
 
 ### Body 详细描述
 
