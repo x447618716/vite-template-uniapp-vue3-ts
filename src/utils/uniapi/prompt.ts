@@ -12,7 +12,7 @@ export function Toast(
 ) {
     void uni.showToast({
         title,
-        duration: 15000,
+        duration: 1500,
         icon: 'none',
         mask: true,
         ...options
