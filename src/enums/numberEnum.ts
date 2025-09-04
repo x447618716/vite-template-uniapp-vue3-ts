@@ -1,6 +1,6 @@
 export enum NumberEnum {
-    /**超时时间常量 */
-    TIME_OUT = 6000,
-    /**时间差常量**/
-    TIME = 30
+    /**超时时间**/
+    TIME_OUT = 60000,
+    /**时间偏移量**/
+    TIME_OFFSET = 30
 }

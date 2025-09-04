@@ -9,16 +9,10 @@ import { useAuthStore } from '@/stores/modules/auth';
 import { checkStatus } from '@/utils/http/checkStatus';
 import { Toast } from '@/utils/uniapi/prompt';
 
-type TimerType = ReturnType<typeof setTimeout>;
-
 /**
  * 请求内置操作
  * */
 interface RequestOperate {
-    /**
-     * 定时器对象
-     * */
-    timer?: TimerType;
     /**
      * 请求地址集
      * key:请求地址
@@ -42,10 +36,7 @@ const alovaInstance = createAlova({
     cacheFor: null, // 完全禁用缓存
     beforeRequest: async method => {
         const authStore = useAuthStore();
-        //判断定时回收器是否存在不存在启动它
-        if (!requestOperate.timer) {
-            timerRecycling();
-        }
+        timerRecycling();
         //判断当前请求是否已在请求列表中
         if (requestOperate.requestMap.has(method.url)) {
             method.abort();
@@ -105,26 +96,14 @@ const alovaInstance = createAlova({
     }
 });
 
-//定时回收
+//回收
 const timerRecycling = () => {
-    //清除冗余数据
     requestOperate.requestMap.forEach((value, key, map) => {
         //请求列中项存在时间超1分钟将其清除
         if (new Date().getTime() - value > NumberEnum.TIME_OUT) {
             map.delete(key);
         }
     });
-
-    requestOperate.timer = setTimeout(() => {
-        if (requestOperate.requestMap.size) {
-            timerRecycling();
-        } else {
-            //清除定时器
-            if (requestOperate.timer) {
-                clearTimeout(requestOperate.timer);
-            }
-        }
-    }, NumberEnum.TIME_OUT);
 };
 
-export const request = alovaInstance;
+export default alovaInstance;

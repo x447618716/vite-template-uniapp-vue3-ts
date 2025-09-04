@@ -51,7 +51,7 @@ export const useAuthStore = defineStore(
             }
         };
         const autoRefresh = async () => {
-            if (dayjs().isAfter(dayjs(expiresAt.value).subtract(NumberEnum.TIME, 'm'))) {
+            if (dayjs().isAfter(dayjs(expiresAt.value).subtract(NumberEnum.TIME_OFFSET, 'm'))) {
                 await refresh();
             }
             setTimeout(async () => {
