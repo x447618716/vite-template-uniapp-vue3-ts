@@ -17,11 +17,9 @@ declare module '*.jpg' {
 }
 
 interface ImportMetaEnv {
-    readonly VITE_ENV: string;
     readonly VITE_APP_TITLE: string;
     readonly VITE_BASE_URL: string;
-    readonly VITE_UPLOAD_URL: string;
-    readonly VITE_APP_CACHE_PREFIX: string;
+    readonly VITE_REQUEST_URL: string;
     readonly VITE_PORT: number;
 }
 

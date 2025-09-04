@@ -298,10 +298,10 @@ module.exports = {
          * */
         'import/newline-after-import': 'warn',
         /**
-         * 作用：限制单个函数行数（建议 50 行内）。
+         * 作用：限制单个函数行数（建议 60 行内）。
          * 目的：避免函数过于复杂，提升可测试性
          * */
-        'max-lines-per-function': ['warn', 50],
+        'max-lines-per-function': ['warn', 60],
         /**
          * 作用：限制函数的圈复杂度（建议 ≤10）。
          * 目的：减少嵌套逻辑，提高可读性

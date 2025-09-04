@@ -11,4 +11,6 @@ onHide(() => {
     console.log('App Hide');
 });
 </script>
-<style src="./main.css"></style>
+<style lang="css">
+@import url('./main.css');
+</style>

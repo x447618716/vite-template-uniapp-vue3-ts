@@ -1,7 +1,5 @@
 // https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 
-// 例：feat: 增加功能
-
 module.exports = {
     extends: ['@commitlint/config-conventional'],
     rules: {
@@ -19,10 +17,10 @@ module.exports = {
                 'build', //修改构建环境、外部依赖
                 'ci', // 持续集成
                 'chore', // 构建过程或辅助工具的变动
-                'revert', // 回滚到上一个版本
-            ],
+                'revert' // 回滚到上一个版本
+            ]
         ],
         'subject-full-stop': [0, 'never'],
-        'subject-case': [0, 'never'],
-    },
+        'subject-case': [0, 'never']
+    }
 };

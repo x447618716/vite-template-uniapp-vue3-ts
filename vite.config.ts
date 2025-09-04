@@ -15,6 +15,16 @@ export default defineConfig(({ mode }) => {
     const isH5 = process.env.UNI_PLATFORM === 'h5';
     const isApp = process.env.UNI_PLATFORM === 'app';
     const WeappTailwindcssDisabled = isH5 || isApp;
+    const plugins = isProduction
+        ? [
+              visualizer({
+                  filename: './dist/stats.html', // 报告输出路径
+                  open: true, // 构建后自动打开
+                  gzipSize: true, // 显示gzip压缩大小
+                  brotliSize: true // 显示brotli压缩大小
+              })
+          ]
+        : [basicSsl()];
     return {
         base: './',
         // 设置路径别名
@@ -28,9 +38,14 @@ export default defineConfig(({ mode }) => {
             minify: isProduction ? 'terser' : false,
             terserOptions: isProduction
                 ? {
-                      compress: { drop_console: true }
+                      compress: {
+                          drop_console: true // 移除所有console.*
+                      },
+                      format: {
+                          comments: false // 删除注释
+                      }
                   }
-                : {}
+                : undefined
         },
         // 开发服务器配置
         server: {
@@ -40,7 +55,7 @@ export default defineConfig(({ mode }) => {
                 '/api': {
                     target: env.VITE_REQUEST_URL,
                     changeOrigin: true,
-                    rewrite: path => path.replace(/^\/api/, '') // 取消注释并启用这个rewrite规则
+                    rewrite: path => path.replace(/^\/api/, '')
                 }
             }
         },
@@ -57,13 +72,7 @@ export default defineConfig(({ mode }) => {
                 rem2rpx: true,
                 disabled: WeappTailwindcssDisabled
             }),
-            visualizer({
-                filename: './dist/stats.html', // 报告输出路径
-                open: true, // 构建后自动打开
-                gzipSize: true, // 显示gzip压缩大小
-                brotliSize: true // 显示brotli压缩大小
-            }),
-            basicSsl()
+            ...plugins
         ]
     };
 });

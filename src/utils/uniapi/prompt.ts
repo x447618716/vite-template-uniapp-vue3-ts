@@ -5,14 +5,14 @@
 
 /**
  * 显示消息提示框
- * @param title
- * @param options
- * @constructor
  */
-export function Toast(title: string, options?: Partial<UniApp.ShowToastOptions>) {
+export function Toast(
+    title: string,
+    options?: Omit<Partial<UniApp.ShowToastOptions>, 'success' | 'fail' | 'complete' | 'mask' | 'icon' | 'duration' | 'title'>
+) {
     void uni.showToast({
         title,
-        duration: 1500,
+        duration: 15000,
         icon: 'none',
         mask: true,
         ...options
@@ -28,15 +28,11 @@ export function HideToast() {
 
 /**
  * 显示 loading 提示框
- * @param title
- * @param options
- * @constructor
  */
-export function Loading(title: string, options?: Partial<UniApp.ShowLoadingOptions>) {
+export function Loading(title: string) {
     void uni.showLoading({
         title,
-        mask: true,
-        ...options
+        mask: true
     });
 }
 
@@ -49,10 +45,8 @@ export function HideLoading() {
 
 /**
  * 显示模态弹窗，可以只有一个确定按钮，也可以同时有确定和取消按钮
- * @param options
- * @constructor
  */
-export function Modal(options: UniApp.ShowModalOptions) {
+export function Modal(options: Omit<UniApp.ShowModalOptions, 'fail' | 'complete' | 'success'>) {
     return new Promise((resolve, reject) => {
         uni.showModal({
             ...options,
@@ -68,10 +62,8 @@ export function Modal(options: UniApp.ShowModalOptions) {
 
 /**
  * 从底部向上弹出操作菜单
- * @param options
- * @constructor
  */
-export function ActionSheet(options: UniApp.ShowActionSheetOptions) {
+export function ActionSheet(options: Omit<UniApp.ShowActionSheetOptions, 'success' | 'fail' | 'complete'>) {
     return new Promise((resolve, reject) => {
         uni.showActionSheet({
             ...options,

@@ -1,6 +1,5 @@
 import AdapterUniapp from '@alova/adapter-uniapp';
 import { createAlova } from 'alova';
-import dayjs from 'dayjs';
 import { assign } from 'lodash-es';
 
 import { ResultEnum } from '@/enums/httpEnum';
@@ -42,7 +41,6 @@ const alovaInstance = createAlova({
     timeout: 10000,
     cacheFor: null, // 完全禁用缓存
     beforeRequest: async method => {
-        await autoRefresh();
         const authStore = useAuthStore();
         //判断定时回收器是否存在不存在启动它
         if (!requestOperate.timer) {
@@ -84,7 +82,7 @@ const alovaInstance = createAlova({
                     return;
                 }
                 if (code === ResultEnum.REFRESH_TOKEN_EXPIRED) {
-                    authStore.clear();
+                    authStore.$reset();
                     await uni.reLaunch({ url: '/pages/login/index' });
                     return;
                 }
@@ -127,19 +125,6 @@ const timerRecycling = () => {
             }
         }
     }, NumberEnum.TIME_OUT);
-};
-
-//自动刷新token
-const autoRefresh = async () => {
-    const authStore = useAuthStore();
-    if (authStore.isLogin) {
-        if (dayjs().isAfter(dayjs(authStore.expiresAt).subtract(NumberEnum.TIME, 'm'))) {
-            await authStore.refresh();
-        }
-        setTimeout(async () => {
-            await autoRefresh();
-        }, NumberEnum.TIME_OUT);
-    }
 };
 
 export const request = alovaInstance;
