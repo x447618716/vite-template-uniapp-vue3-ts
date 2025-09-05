@@ -231,6 +231,17 @@
                                 "default": 50
                             }
                         }
+                    },
+                    "meta": {
+                        "type": "object",
+                        "description": "路由扩展数据",
+                        "properties": {
+                            "ignoreAuth": {
+                                "type": "boolean",
+                                "description": "是否忽略认证",
+                                "default": false
+                            }
+                        }
                     }
                 },
                 "required": ["path", "name"]

@@ -38,10 +38,12 @@ router.beforeEach((to: CustomRoute, _, next) => {
 
 router.afterEach((to: CustomRoute) => {
     const authStore = useAuthStore();
-    if (!authStore.isLogin && to.name !== 'Login') {
-        // 如果没有登录且目标路由不是登录页面则跳转到登录页面
-        router.replaceAll({ name: 'Login', params: { redirect: to.name ?? '', ...to.query } });
-    } else if (authStore.isLogin && to.name === 'Login') {
+    if (!authStore.isLogin) {
+        if (to.meta?.ignoreAuth === undefined) {
+            // 如果没有登录且目标路由不是忽略认证页面则跳转到登录页面
+            router.replaceAll({ name: 'Login', params: { redirect: to.name ?? '', ...to.query } });
+        }
+    } else if (to.name === 'Login') {
         // 如果已经登录且目标页面是登录页面则跳转至首页
         router.replaceAll({ name: 'Home' });
     }
