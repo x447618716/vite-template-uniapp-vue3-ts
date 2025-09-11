@@ -1,8 +1,5 @@
-import { createRouter } from 'uni-mini-router';
 import type { Route } from 'uni-mini-router/lib/interfaces';
 import pagesJsonToRoutes from 'uni-parse-pages';
-
-import { useAuthStore } from '@/stores/modules/auth';
 
 import pagesJson from '../pages.json';
 

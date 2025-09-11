@@ -1,4 +1,3 @@
-import { ResultEnum } from '@/enums/httpEnum';
 import { Toast } from '@/utils/uniapi/prompt';
 
 export const checkStatus = (status: number, msg?: string) => {

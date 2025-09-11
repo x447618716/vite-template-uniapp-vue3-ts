@@ -1,10 +1,5 @@
 import dayjs from 'dayjs';
 import { defineStore } from 'pinia';
-import { computed, ref, watch } from 'vue';
-
-import { ResultEnum } from '@/enums/httpEnum';
-import { NumberEnum } from '@/enums/numberEnum';
-import { logout, refreshAccessToken } from '@/services/api/auth';
 
 interface AccountInfo {
     account: string;

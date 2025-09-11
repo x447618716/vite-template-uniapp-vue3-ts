@@ -3,6 +3,7 @@ import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
 import uni from '@dcloudio/vite-plugin-uni';
 import { UnifiedViteWeappTailwindcssPlugin } from 'weapp-tailwindcss/vite';
+import AutoImport from 'unplugin-auto-import/vite';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from '@tailwindcss/postcss';
 import visualizer from 'rollup-plugin-visualizer';
@@ -71,6 +72,12 @@ export default defineConfig(({ mode }) => {
             UnifiedViteWeappTailwindcssPlugin({
                 rem2rpx: true,
                 disabled: WeappTailwindcssDisabled
+            }),
+            AutoImport({
+                imports: ['vue', 'uni-app'],
+                dirs: ['./src/services/api/**', './src/enums/**', './src/hooks/**', './src/stores/modules/**'],
+                packagePresets: ['uni-mini-router'],
+                dts: true
             }),
             ...plugins
         ]

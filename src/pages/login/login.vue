@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import { onLoad } from '@dcloudio/uni-app';
 import { storeToRefs } from 'pinia';
-import { useRouter } from 'uni-mini-router';
-import { reactive } from 'vue';
 
-import { login } from '@/services/api/auth';
-import { useAuthStore } from '@/stores/modules/auth';
 import { Toast } from '@/utils/uniapi/prompt';
 
 const authStore = useAuthStore();
