@@ -62,6 +62,12 @@ export default defineConfig(({ mode }) => {
         },
         // CSS 预处理器配置
         css: {
+            preprocessorOptions: {
+                scss: {
+                    silenceDeprecations: ['legacy-js-api', 'import'],
+                    additionalData: '@import "uview-plus/theme.scss";'
+                }
+            },
             postcss: {
                 plugins: [tailwindcss(), autoprefixer()]
             }

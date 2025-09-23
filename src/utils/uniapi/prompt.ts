@@ -46,7 +46,7 @@ export function HideLoading() {
 /**
  * 显示模态弹窗，可以只有一个确定按钮，也可以同时有确定和取消按钮
  */
-export function Modal(options: Omit<UniApp.ShowModalOptions, 'fail' | 'complete' | 'success'>) {
+export function Modal(options: Omit<UniApp.ShowModalOptions, 'fail' | 'complete' | 'success'>): Promise<UniApp.ShowModalRes> {
     return new Promise((resolve, reject) => {
         uni.showModal({
             ...options,
@@ -63,7 +63,7 @@ export function Modal(options: Omit<UniApp.ShowModalOptions, 'fail' | 'complete'
 /**
  * 从底部向上弹出操作菜单
  */
-export function ActionSheet(options: Omit<UniApp.ShowActionSheetOptions, 'success' | 'fail' | 'complete'>) {
+export function ActionSheet(options: Omit<UniApp.ShowActionSheetOptions, 'success' | 'fail' | 'complete'>): Promise<UniApp.ShowActionSheetRes> {
     return new Promise((resolve, reject) => {
         uni.showActionSheet({
             ...options,
