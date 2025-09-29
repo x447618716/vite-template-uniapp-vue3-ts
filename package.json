@@ -1,6 +1,6 @@
 {
     "name": "vite-template-uniapp-vue3-ts",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "private": true,
     "scripts": {
         "dev:app": "uni -p app",
