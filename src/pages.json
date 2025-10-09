@@ -1,0 +1,94 @@
+{
+    "$schema": "uniapp-pages-schema.json",
+    "pages": [
+        {
+            "name": "Home",
+            "path": "pages/home/home",
+            "style": {
+                "navigationBarTitleText": "首页",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "name": "Login",
+            "path": "pages/login/login",
+            "style": {
+                "navigationStyle": "custom"
+            },
+            "meta": {
+                "ignoreAuth": true
+            }
+        },
+        {
+            "name": "Categorize",
+            "path": "pages/categorize/categorize",
+            "style": {
+                "navigationBarTitleText": "分类",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "name": "Cart",
+            "path": "pages/cart/cart",
+            "style": {
+                "navigationBarTitleText": "购物车",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "name": "Mine",
+            "path": "pages/mine/mine",
+            "style": {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "uniapp 模版项目",
+        "navigationBarBackgroundColor": "#3366ff",
+        "backgroundColor": "#3366ff",
+        "navigationStyle": "default",
+        "renderingMode": "seperated",
+        "pageOrientation": "portrait"
+    },
+    "tabBar": {
+        "color": "#474747",
+        "selectedColor": "#233CFE",
+        "backgroundColor": "#FFFFFF",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "static/tabBar/homeNormal@2x.png",
+                "selectedIconPath": "static/tabBar/homeActive@2x.png"
+            },
+            {
+                "pagePath": "pages/categorize/categorize",
+                "text": "分类",
+                "iconPath": "static/tabBar/shopNormal@2x.png",
+                "selectedIconPath": "static/tabBar/shopActive@2x.png"
+            },
+            {
+                "pagePath": "pages/cart/cart",
+                "text": "购物车",
+                "iconPath": "static/tabBar/cartNormal@2x.png",
+                "selectedIconPath": "static/tabBar/cartActive@2x.png"
+            },
+            {
+                "pagePath": "pages/mine/mine",
+                "text": "我的",
+                "iconPath": "static/tabBar/mineNormal@2x.png",
+                "selectedIconPath": "static/tabBar/mineActive@2x.png"
+            }
+        ]
+    },
+    "easycom": {
+        "autoscan": true,
+        "custom": {
+            "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+            "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue"
+        }
+    }
+}

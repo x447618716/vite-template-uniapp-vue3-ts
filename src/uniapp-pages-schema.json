@@ -1,0 +1,412 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "UniApp pages.json  Schema",
+    "description": "全局配置文件，定义页面路由、窗口样式和导航栏等配置",
+    "type": "object",
+    "properties": {
+        "globalStyle": {
+            "type": "object",
+            "description": "全局窗口样式配置（所有页面生效）",
+            "properties": {
+                "navigationBarBackgroundColor": {
+                    "type": "string",
+                    "description": "导航栏背景颜色（同状态栏背景色)（十六进制值）",
+                    "default": "#F8F8F8"
+                },
+                "navigationBarTextStyle": {
+                    "type": "string",
+                    "description": "导航栏标题颜色及状态栏前景颜色，仅支持 black/white",
+                    "enum": ["white", "black"],
+                    "default": "black"
+                },
+                "navigationBarTitleText": {
+                    "type": "string",
+                    "description": "导航栏标题文字内容"
+                },
+                "navigationStyle": {
+                    "type": "string",
+                    "description": "导航栏样式，仅支持 default/custom。custom即取消默认的原生导航栏",
+                    "enum": ["default", "custom"],
+                    "default": "default"
+                },
+                "backgroundColor": {
+                    "type": "string",
+                    "description": "下拉显示出来的窗口的背景色（十六进制值）",
+                    "default": "#ffffff"
+                },
+                "backgroundTextStyle": {
+                    "type": "string",
+                    "description": "下拉 loading 的样式，仅支持 dark / light",
+                    "enum": ["dark", "light"],
+                    "default": "dark"
+                },
+                "enablePullDownRefresh": {
+                    "type": "boolean",
+                    "description": "是否开启下拉刷新",
+                    "default": false
+                },
+                "onReachBottomDistance": {
+                    "type": "number",
+                    "description": "页面上拉触底事件触发时距页面底部距离，单位只支持px",
+                    "default": 50
+                },
+                "backgroundColorTop": {
+                    "type": "string",
+                    "description": "顶部窗口的背景色（bounce回弹区域）",
+                    "default": "#ffffff"
+                },
+                "backgroundColorBottom": {
+                    "type": "string",
+                    "description": "底部窗口的背景色（bounce回弹区域）",
+                    "default": "#ffffff"
+                },
+                "titleImage": {
+                    "type": "string",
+                    "description": "导航栏图片地址（替换当前文字标题），支付宝小程序内必须使用https的图片链接地址"
+                },
+                "transparentTitle": {
+                    "type": "string",
+                    "description": "导航栏整体（前景、背景）透明设置。支持 always 一直透明 / auto 滑动自适应 / none 不透明",
+                    "default": "none"
+                },
+                "titlePenetrate": {
+                    "type": "string",
+                    "description": "导航栏点击穿透",
+                    "default": "No"
+                },
+                "pageOrientation": {
+                    "type": "string",
+                    "description": "横屏配置，屏幕旋转设置，仅支持 auto / portrait / landscape 详见 响应显示区域变化",
+                    "default": "portrait"
+                },
+                "animationType": {
+                    "type": "string",
+                    "description": "窗口显示的动画效果，详见：窗口动画",
+                    "default": "pop-in"
+                },
+                "animationDuration": {
+                    "type": "number",
+                    "description": "窗口显示动画的持续时间，单位为 ms",
+                    "default": 300
+                },
+                "app-plus": {
+                    "type": "object",
+                    "description": "设置编译到 App 平台的特定样式，配置项参考下方 app-plus"
+                },
+                "app-harmony": {
+                    "type": "object",
+                    "description": "设置编译到 App 平台的特定样式，配置项参考下方 app-harmony"
+                },
+                "h5": {
+                    "type": "object",
+                    "description": "设置编译到 H5 平台的特定样式，配置项参考下方 H5"
+                },
+                "mp-alipay": {
+                    "type": "object",
+                    "description": "设置编译到 mp-alipay 平台的特定样式，配置项参考下方 MP-ALIPAY"
+                },
+                "mp-weixin": {
+                    "type": "object",
+                    "description": "设置编译到 mp-weixin 平台的特定样式，配置项参考下方 MP-WEIXIN"
+                },
+                "mp-baidu": {
+                    "type": "object",
+                    "description": "设置编译到 mp-baidu 平台的特定样式，配置项参考下方 MP-BAIDU"
+                },
+                "mp-toutiao": {
+                    "type": "object",
+                    "description": "设置编译到 mp-toutiao 平台的特定样式"
+                },
+                "mp-lark": {
+                    "type": "object",
+                    "description": "设置编译到 mp-lark 平台的特定样式"
+                },
+                "mp-qq": {
+                    "type": "object",
+                    "description": "设置编译到 mp-qq 平台的特定样式"
+                },
+                "mp-kuaishou": {
+                    "type": "object",
+                    "description": "设置编译到 mp-kuaishou 平台的特定样式"
+                },
+                "mp-jd": {
+                    "type": "object",
+                    "description": "设置编译到 mp-jd 平台的特定样式"
+                },
+                "mp-xhs": {
+                    "type": "object",
+                    "description": "设置编译到 mp-xhs 平台的特定样式"
+                },
+                "usingComponents": {
+                    "type": "object",
+                    "description": "引用小程序组件，参考 小程序组件"
+                },
+                "renderingMode": {
+                    "type": "string",
+                    "description": "同层渲染，webrtc(实时音视频) 无法正常时尝试配置 seperated 强制关掉同层"
+                },
+                "rpxCalcMaxDeviceWidth": {
+                    "type": "number",
+                    "description": "rpx 计算所支持的最大设备宽度，单位 px",
+                    "default": 960
+                },
+                "rpxCalcBaseDeviceWidth": {
+                    "type": "number",
+                    "description": "rpx 计算使用的基准设备宽度，设备实际宽度超出 rpx 计算所支持的最大设备宽度时将按基准宽度计算，单位 px",
+                    "default": 375
+                },
+                "rpxCalcIncludeWidth": {
+                    "type": "number",
+                    "description": "rpx 计算特殊处理的值，始终按实际的设备宽度计算，单位 rpx",
+                    "default": 750
+                },
+                "dynamicRpx": {
+                    "type": "boolean",
+                    "description": "动态 rpx，屏幕大小变化会重新渲染 rpx",
+                    "default": false
+                }
+            },
+            "required": ["navigationBarTitleText"]
+        },
+        "pages": {
+            "type": "array",
+            "minItems": 1,
+            "description": "页面路径配置（第一项为首页）",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "pattern": "^pages/.*",
+                        "description": "页面路径（无需后缀）"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "命名路由跳转名称"
+                    },
+                    "style": {
+                        "type": "object",
+                        "description": "页面独有样式（覆盖全局样式）",
+                        "properties": {
+                            "navigationBarBackgroundColor": {
+                                "type": "string",
+                                "description": "导航栏背景颜色（同状态栏背景色)（十六进制值）",
+                                "default": "#F8F8F8"
+                            },
+                            "navigationBarTextStyle": {
+                                "type": "string",
+                                "description": "导航栏标题颜色及状态栏前景颜色，仅支持 black/white",
+                                "enum": ["white", "black"],
+                                "default": "black"
+                            },
+                            "navigationBarTitleText": {
+                                "type": "string",
+                                "description": "导航栏标题文字内容"
+                            },
+                            "navigationStyle": {
+                                "type": "string",
+                                "description": "导航栏样式，仅支持 default/custom。custom即取消默认的原生导航栏",
+                                "enum": ["default", "custom"],
+                                "default": "default"
+                            },
+                            "backgroundColor": {
+                                "type": "string",
+                                "description": "下拉显示出来的窗口的背景色（十六进制值）",
+                                "default": "#ffffff"
+                            },
+                            "backgroundTextStyle": {
+                                "type": "string",
+                                "description": "下拉 loading 的样式，仅支持 dark / light",
+                                "enum": ["dark", "light"],
+                                "default": "dark"
+                            },
+                            "enablePullDownRefresh": {
+                                "type": "boolean",
+                                "description": "是否开启下拉刷新",
+                                "default": false
+                            },
+                            "onReachBottomDistance": {
+                                "type": "number",
+                                "description": "页面上拉触底事件触发时距页面底部距离，单位只支持px",
+                                "default": 50
+                            }
+                        }
+                    },
+                    "meta": {
+                        "type": "object",
+                        "description": "路由扩展数据",
+                        "properties": {
+                            "ignoreAuth": {
+                                "type": "boolean",
+                                "description": "是否忽略认证",
+                                "default": false
+                            }
+                        }
+                    }
+                },
+                "required": ["path", "name"]
+            }
+        },
+        "easycom": {
+            "type": "object",
+            "description": "组件自动引入规则",
+            "properties": {}
+        },
+        "tabBar": {
+            "type": "object",
+            "description": "底部导航栏配置",
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "description": "未选中时的文字颜色（十六进制）"
+                },
+                "selectedColor": {
+                    "type": "string",
+                    "description": "选中时的文字颜色（十六进制）"
+                },
+                "backgroundColor": {
+                    "type": "string",
+                    "description": "背景颜色（十六进制）"
+                },
+                "borderStyle": {
+                    "type": "string",
+                    "description": "上边框样式",
+                    "enum": ["black", "white"],
+                    "default": "black"
+                },
+                "list": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 5,
+                    "description": "导航项列表",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "pagePath": {
+                                "type": "string",
+                                "pattern": "^pages/.*",
+                                "description": "页面路径（需在pages中注册）"
+                            },
+                            "text": { "type": "string" },
+                            "iconPath": { "type": "string" },
+                            "selectedIconPath": { "type": "string" }
+                        },
+                        "required": ["pagePath", "text"]
+                    }
+                },
+                "position": {
+                    "type": "string",
+                    "description": "导航栏位置",
+                    "enum": ["bottom", "top"],
+                    "default": "bottom"
+                },
+                "fontSize": {
+                    "type": "string",
+                    "description": "文字默认大小",
+                    "default": "10px"
+                },
+                "iconWidth": {
+                    "type": "string",
+                    "description": "图标默认宽度（高度等比例缩放）",
+                    "default": "24px"
+                },
+                "spacing": {
+                    "type": "string",
+                    "description": "图标和文字的间距",
+                    "default": "3px"
+                },
+                "height": {
+                    "type": "string",
+                    "description": "tabBar 默认高度",
+                    "default": "50px"
+                },
+                "midButton": {
+                    "type": "object",
+                    "description": "中间按钮 仅在 list 项为偶数时有效"
+                },
+                "iconfontSrc": {
+                    "type": "string",
+                    "description": "list设置 iconfont 属性时，需要指定字体文件路径"
+                }
+            },
+            "required": ["color", "selectedColor", "backgroundColor", "list"]
+        },
+        "condition": {
+            "type": "object",
+            "description": "启动模式配置（仅开发环境生效）",
+            "properties": {
+                "current": {
+                    "type": "number",
+                    "description": "当前激活的模式索引"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": { "type": "string" },
+                            "path": { "type": "string" },
+                            "query": { "type": "string" }
+                        },
+                        "required": ["name", "path"]
+                    }
+                }
+            }
+        },
+        "subPackages": {
+            "type": "array",
+            "description": "分包加载配置",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "root": {
+                        "type": "string",
+                        "description": "分包根目录"
+                    },
+                    "pages": {
+                        "type": "array",
+                        "description": "分包由哪些页面组成，参数同 pages",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "path": { "type": "string" },
+                                "style": { "type": "object" }
+                            },
+                            "required": ["path"]
+                        }
+                    },
+                    "plugins": {
+                        "type": "object",
+                        "description": "分包的插件"
+                    }
+                },
+                "required": ["root", "pages"]
+            }
+        },
+        "preloadRule": {
+            "type": "object",
+            "description": "分包预下载规则",
+            "properties": {
+                "packages": {
+                    "type": "array",
+                    "description": "进入页面后预下载分包的 root 或 name。__APP__ 表示主包。"
+                },
+                "network": {
+                    "type": "string",
+                    "description": "在指定网络下预下载，可选值为：all（不限网络）、wifi（仅wifi下预下载）",
+                    "default": "wifi"
+                }
+            },
+            "required": ["packages"]
+        },
+        "uniIdRouter": {
+            "type": "object",
+            "description": "自动跳转相关配置"
+        },
+        "entryPagePath": {
+            "type": "string",
+            "description": "默认启动首页 (仅微信小程序、支付宝小程序、抖音小程序)"
+        }
+    },
+    "required": ["pages"]
+}
