@@ -86,6 +86,9 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 │   ├─enums # 枚举/常量
 │   │   └─...
 │   │
+│   ├─ http  # request相关目录
+│   │   └─...
+│   │
 │   ├─pages # 页面
 │   │   ├─ index
 │   │   │    └─index.vue
@@ -119,13 +122,11 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 │   │
 │   │
 │   └─utils # 工具类
-│       ├─ cache # 缓存相关目录
-│       ├─ http  # request相关目录
-│       ├─ interceptors  # 拦截器相关目录
-│       └─ ...
+│      └─ ...
+│ 
 ├─types # 类型文件
-│   │   ├─ env.d.ts
-│   │   └─ ...
+│   ├─ env.d.ts
+│   └─ ...   
 │
 ├─ .env
 ├─ .env.development
