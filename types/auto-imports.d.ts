@@ -6,21 +6,31 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+    const ActionSheet: (typeof import('../src/utils/uniapi/prompt'))['ActionSheet'];
     const CURRENT_PLATFORM: (typeof import('../src/enums/platformEnum'))['CURRENT_PLATFORM'];
     const ContentTypeEnum: (typeof import('../src/enums/httpEnum'))['ContentTypeEnum'];
     const EffectScope: (typeof import('vue'))['EffectScope'];
+    const HideLoading: (typeof import('../src/utils/uniapi/prompt'))['HideLoading'];
+    const HideToast: (typeof import('../src/utils/uniapi/prompt'))['HideToast'];
+    const Loading: (typeof import('../src/utils/uniapi/prompt'))['Loading'];
+    const Modal: (typeof import('../src/utils/uniapi/prompt'))['Modal'];
     const NavMethod: (typeof import('uni-mini-router'))['NavMethod'];
     const NavTypeEnum: (typeof import('uni-mini-router'))['NavTypeEnum'];
     const NumberEnum: (typeof import('../src/enums/numberEnum'))['NumberEnum'];
     const PLATFORMS: (typeof import('../src/enums/platformEnum'))['PLATFORMS'];
     const ResultEnum: (typeof import('../src/enums/httpEnum'))['ResultEnum'];
+    const Toast: (typeof import('../src/utils/uniapi/prompt'))['Toast'];
+    const acceptHMRUpdate: (typeof import('pinia'))['acceptHMRUpdate'];
     const computed: (typeof import('vue'))['computed'];
     const createApp: (typeof import('vue'))['createApp'];
+    const createPinia: (typeof import('pinia'))['createPinia'];
     const createRouter: (typeof import('uni-mini-router'))['createRouter'];
     const customRef: (typeof import('vue'))['customRef'];
     const defineAsyncComponent: (typeof import('vue'))['defineAsyncComponent'];
     const defineComponent: (typeof import('vue'))['defineComponent'];
+    const defineStore: (typeof import('pinia'))['defineStore'];
     const effectScope: (typeof import('vue'))['effectScope'];
+    const getActivePinia: (typeof import('pinia'))['getActivePinia'];
     const getCurrentInstance: (typeof import('vue'))['getCurrentInstance'];
     const getCurrentScope: (typeof import('vue'))['getCurrentScope'];
     const getCurrentWatcher: (typeof import('vue'))['getCurrentWatcher'];
@@ -33,6 +43,11 @@ declare global {
     const isShallow: (typeof import('vue'))['isShallow'];
     const login: (typeof import('../src/services/api/auth'))['login'];
     const logout: (typeof import('../src/services/api/auth'))['logout'];
+    const mapActions: (typeof import('pinia'))['mapActions'];
+    const mapGetters: (typeof import('pinia'))['mapGetters'];
+    const mapState: (typeof import('pinia'))['mapState'];
+    const mapStores: (typeof import('pinia'))['mapStores'];
+    const mapWritableState: (typeof import('pinia'))['mapWritableState'];
     const markRaw: (typeof import('vue'))['markRaw'];
     const nextTick: (typeof import('vue'))['nextTick'];
     const onActivated: (typeof import('vue'))['onActivated'];
@@ -79,9 +94,12 @@ declare global {
     const ref: (typeof import('vue'))['ref'];
     const refreshAccessToken: (typeof import('../src/services/api/auth'))['refreshAccessToken'];
     const resolveComponent: (typeof import('vue'))['resolveComponent'];
+    const setActivePinia: (typeof import('pinia'))['setActivePinia'];
+    const setMapStoreSuffix: (typeof import('pinia'))['setMapStoreSuffix'];
     const shallowReactive: (typeof import('vue'))['shallowReactive'];
     const shallowReadonly: (typeof import('vue'))['shallowReadonly'];
     const shallowRef: (typeof import('vue'))['shallowRef'];
+    const storeToRefs: (typeof import('pinia'))['storeToRefs'];
     const toRaw: (typeof import('vue'))['toRaw'];
     const toRef: (typeof import('vue'))['toRef'];
     const toRefs: (typeof import('vue'))['toRefs'];
@@ -127,6 +145,18 @@ declare global {
         WritableComputedRef
     } from 'vue';
     import('vue');
+    // @ts-ignore
+    export type { LoginDto, RefreshDto } from '../src/services/dto/auth';
+    import('../src/services/dto/auth');
+    // @ts-ignore
+    export type { PageDto } from '../src/services/dto/common';
+    import('../src/services/dto/common');
+    // @ts-ignore
+    export type { LoginVo } from '../src/services/vo/auth';
+    import('../src/services/vo/auth');
+    // @ts-ignore
+    export type { BaseResponse } from '../src/services/vo/common';
+    import('../src/services/vo/common');
     // @ts-ignore
     export type { ResultEnum, ContentTypeEnum } from '../src/enums/httpEnum';
     import('../src/enums/httpEnum');

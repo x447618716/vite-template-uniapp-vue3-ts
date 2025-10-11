@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
-
-import { Toast } from '@/utils/uniapi/prompt';
-
 const authStore = useAuthStore();
 const router = useRouter();
 const { accountInfo, accessToken, refreshToken, expiresAt } = storeToRefs(authStore);
 
-const form = reactive<Parameters<typeof login>[0]>({
+const form = reactive<LoginDto>({
     account: '',
     password: ''
 });

@@ -2,9 +2,7 @@ import AdapterUniapp from '@alova/adapter-uniapp';
 import { createAlova } from 'alova';
 import { assign } from 'lodash-es';
 
-import type { BaseResponse } from '@/services/vo/conmmon';
-import { checkStatus } from '@/utils/http/checkStatus';
-import { Toast } from '@/utils/uniapi/prompt';
+import { checkStatus } from '@/http/checkStatus';
 
 /**
  * 请求内置操作

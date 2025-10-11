@@ -80,8 +80,8 @@ export default defineConfig(({ mode }) => {
                 disabled: WeappTailwindcssDisabled
             }),
             AutoImport({
-                imports: ['vue', 'uni-app'],
-                dirs: ['./src/services/api/**', './src/enums/**', './src/hooks/**', './src/stores/modules/**'],
+                imports: ['vue', 'uni-app', 'pinia'],
+                dirs: ['./src/services/**', './src/utils/**', './src/enums/**', './src/hooks/**', './src/stores/modules/**'],
                 packagePresets: ['uni-mini-router'],
                 dts: 'types/auto-imports.d.ts'
             }),
