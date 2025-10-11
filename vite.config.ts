@@ -81,7 +81,7 @@ export default defineConfig(({ mode }) => {
             }),
             AutoImport({
                 imports: ['vue', 'uni-app', 'pinia'],
-                dirs: ['./src/services/**', './src/utils/**', './src/enums/**', './src/hooks/**', './src/stores/modules/**'],
+                dirs: ['src/services/**', 'src/utils/**', 'src/enums/**', 'src/hooks/**', 'src/stores/modules/**'],
                 packagePresets: ['uni-mini-router'],
                 dts: 'types/auto-imports.d.ts'
             }),
